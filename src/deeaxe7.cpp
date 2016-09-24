@@ -214,7 +214,7 @@ void DeeAxe7::set_params(void)
   synth_unit_->onParam(131,static_cast<char>(*p(p_pitch_eg_level_2)));
   synth_unit_->onParam(132,static_cast<char>(*p(p_pitch_eg_level_3)));
   synth_unit_->onParam(133,static_cast<char>(*p(p_pitch_eg_level_4)));
-  synth_unit_->onParam(134,static_cast<char>(*p(p_algorithm_num)));
+  synth_unit_->onParam(134,static_cast<char>(*p(p_algorithm_num)+1));
   synth_unit_->onParam(135,static_cast<char>(*p(p_feedback)));
   synth_unit_->onParam(136,static_cast<char>(*p(p_oscillator_sync)));
   synth_unit_->onParam(137,static_cast<char>(*p(p_lfo_speed)));
