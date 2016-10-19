@@ -1,4 +1,1 @@
-# webdx7
-virtual Yamaha DX7 synth in a browser
-
-more at http://webaudiomodules.org
+Forked from https://github.com/webaudiomodules/webdx7
