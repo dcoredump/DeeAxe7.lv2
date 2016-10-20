@@ -1,0 +1,6 @@
+*.o
+*.so
+*.gch
+*.swp
+dx7-test
+dx7.lv2/

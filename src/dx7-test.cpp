@@ -51,8 +51,15 @@ int main(int argc, char **argv)
   static const float scaler = 0.00003051757813;
 
   uint32_t n;
-  for(n=0;n<10;n++)
+  for(n=0;n<1000;n++)
   { 
+	TRACE("%d",n);
+	if(n==5)
+	{
+  uint8_t msg[3] = { 0x8A, 64, 80 };
+  ring_buffer_.Write(msg, 3);
+	}
+
   synth_unit_->GetSamples(bufsize_, outbuf16_);
   uint32_t i;
   for (i = 0; i <= 255; ++i)

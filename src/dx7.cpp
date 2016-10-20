@@ -11,6 +11,7 @@
 #include "msfa/synth.h"
 #include "msfa/ringbuffer.h"
 
+static const float scaler = 0.00003051757813;
 
 DX7::DX7(double rate) : lvtk::Synth<DX7_Voice, DX7>(p_n_ports, p_lv2_events_in)
 {
@@ -36,6 +37,37 @@ DX7::~DX7()
 {
   TRACE("Hi");
 
+  delete synth_unit_;
+  delete [] outbuf16_;
+
+  TRACE("Bye");
+}
+
+void DX7::render(uint32_t from, uint32_t to)
+{
+  uint32_t i;
+
+  TRACE("Hi");
+
+  synth_unit_->GetSamples(to-from, outbuf16_);
+
+  for (i = from; i < to; ++i)
+    p(p_lv2_audio_out_1)[i]+=outbuf16_[i] * scaler;
+
+  TRACE("Bye");
+}
+
+void DX7::post_process(uint32_t from, uint32_t to)
+{
+  uint32_t i;
+
+  TRACE("Hi");
+
+  for (i = from; i < to; ++i)
+  {
+    p(p_lv2_audio_out_1)[i] *= *p(p_output);
+  }
+
   TRACE("Bye");
 }
 
@@ -44,9 +76,6 @@ DX7::~DX7()
 DX7_Voice::DX7_Voice(double rate) : m_key(lvtk::INVALID_KEY), m_rate(rate)
 {
   TRACE("Hi");
-
-  delete synth_unit_;
-  delete [] outbuf16_;
 
   TRACE("Bye");
 }
@@ -64,8 +93,7 @@ void DX7_Voice::on(unsigned char key, unsigned char velocity)
 
   m_key = key;
 
-  uint8_t msg[3] = { status, data1, data2 };
-  ring_buffer_.Write(msg, 3);
+  add_midi(0x91, key, velocity);
 
   TRACE("Bye");
 }
@@ -74,6 +102,7 @@ void DX7_Voice::off(unsigned char velocity)
 {
   TRACE("Hi");
 
+  add_midi(0x81, m_key, velocity);
   m_key = lvtk::INVALID_KEY;
 
   TRACE("Bye");
@@ -84,33 +113,24 @@ unsigned char DX7_Voice::get_key(void) const
   return m_key;
 }
 
-void DX7_Voice::render(uint32_t from, uint32_t to)
+/* void DX7_Voice::render(uint32_t from, uint32_t to)
 {
   uint32_t i;
 
   TRACE("Hi");
 
-  if (m_key != lvtk::INVALID_KEY)
-  {
-    for (i = from; i < to; ++i)
-      p(p_lv2_audio_out_1)[i]+=(float)outbuf16_[i]/INT32_MAX;
-  }
-
-  TRACE("Bye");
-}
-
-void DX7_Voice::post_process(uint32_t from, uint32_t to)
-{
-  uint32_t i;
-
-  TRACE("Hi");
+  synth_unit_->GetSamples(to-from, outbuf16_);
 
   for (i = from; i < to; ++i)
-  {
-    p(p_lv2_audio_out_1)[i] *= *p(p_output);
-  }
+    p(p_lv2_audio_out_1)[i]+=outbuf16_[i] * scaler);
 
   TRACE("Bye");
+} */
+
+void DX7_Voice::add_midi(uint8_t msg1, uint8_t msg2, uint8_t msg3)
+{
+  uint8_t msg[3] = { msg1, msg2, msg3 };
+  ring_buffer_.Write(msg, 3);
 }
 
 #ifdef DEBUG

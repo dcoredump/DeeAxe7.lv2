@@ -39,6 +39,10 @@ void dexed_trace(const char *source, const char *fmt, ...);
 
 //==============================================================================
 
+RingBuffer ring_buffer_;
+
+//==============================================================================
+
 class DX7_Voice : public lvtk::Voice
 {
   public:
@@ -47,18 +51,15 @@ class DX7_Voice : public lvtk::Voice
     void on(unsigned char key, unsigned char velocity);
     void off(unsigned char velocity);
     unsigned char get_key(void) const;
-    void render(uint32_t from, uint32_t to);
-    void post_process(uint32_t from, uint32_t to);
+//    void render(uint32_t from, uint32_t to);
+//    void post_process(uint32_t from, uint32_t to);
+    void add_midi(uint8_t msg1, uint8_t msg2, uint8_t msg3);
 
   protected:
     unsigned char m_key;
     double m_rate;
 
   private:
-    RingBuffer ring_buffer_;
-    SynthUnit *synth_unit_;
-    int16_t* outbuf16_;
-    uint32_t bufsize_;
 };
 
 //==============================================================================
@@ -68,10 +69,15 @@ class DX7 : public lvtk::Synth<DX7_Voice, DX7>
   public:
     DX7(double rate);
     ~DX7();
+    void render(uint32_t from, uint32_t to);
+    void post_process(uint32_t from, uint32_t to);
 
   protected:
 
   private:
+    SynthUnit *synth_unit_;
+    int16_t* outbuf16_;
+    uint32_t bufsize_;
 };
 
 // GLOBALS

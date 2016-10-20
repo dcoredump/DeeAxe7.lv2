@@ -1,17 +1,20 @@
 CC=g++
 BUNDLE = dx7.lv2
-INSTALL_DIR = /home/pi/zynthian/zynthian-plugins/mod-lv2
+#INSTALL_DIR = /home/pi/zynthian/zynthian-plugins/mod-lv2
+INSTALL_DIR = /tmp/lv2
 TARGET=dx7.so
 OBJECTS=synth_unit.o ringbuffer.o patch.o \
 	lfo.o dx7note.o freqlut.o sin.o exp2.o \
 	fm_core.o pitchenv.o env.o fm_op_kernel.o
 CFLAGS=-O2 -fPIC -DPIC -DDEBUG=1 -std=c++11 -I. -I./msfa -I/usr/local/include/lvtk-2
-LDFLAGS=-shared -L/usr/local/lib -llvtk_plugin2
+#LDFLAGS=-shared -L/usr/local/lib -llvtk_plugin2
+LDFLAGS=-shared -fPIC -DPIC -L/usr/local/lib -llvtk_plugin2
 
 all: $(BUNDLE)
 
 clean:
-	rm -f *.o *~ *.bak *.gch *.peg
+	rm -f *.o *~ *.bak *.gch *.peg *.so dx7-test
+	rm -r $(BUNDLE)
 
 install: $(BUNDLE)
 	mkdir -p $(INSTALL_DIR)
