@@ -10,7 +10,7 @@
 #include "msfa/synth_unit.h"
 #include "msfa/ringbuffer.h"
 
-void dx7_trace(const char *source, const char *fmt, ...)
+void _trace(const char *source, const char *fmt, ...)
 {
     char output[4096];
     va_list argptr;
@@ -20,8 +20,7 @@ void dx7_trace(const char *source, const char *fmt, ...)
     printf("%s: %s\n",source,output);
 }
 
-#define DEXED_VERSION DX7_ID " DEBUG"
-#define TRACE(fmt, ...) dx7_trace(__PRETTY_FUNCTION__,fmt,##__VA_ARGS__)
+#define TRACE(fmt, ...) _trace(__PRETTY_FUNCTION__,fmt,##__VA_ARGS__)
 
 int main(int argc, char **argv)
 {

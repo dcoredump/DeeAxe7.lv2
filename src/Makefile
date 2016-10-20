@@ -7,14 +7,13 @@ OBJECTS=synth_unit.o ringbuffer.o patch.o \
 	lfo.o dx7note.o freqlut.o sin.o exp2.o \
 	fm_core.o pitchenv.o env.o fm_op_kernel.o
 CFLAGS=-O2 -fPIC -DPIC -DDEBUG=1 -std=c++11 -I. -I./msfa -I/usr/local/include/lvtk-2
-#LDFLAGS=-shared -L/usr/local/lib -llvtk_plugin2
-LDFLAGS=-shared -fPIC -DPIC -L/usr/local/lib -llvtk_plugin2
+LDFLAGS=-shared -L/usr/local/lib -llvtk_plugin2 -llilv-0
 
 all: $(BUNDLE)
 
 clean:
 	rm -f *.o *~ *.bak *.gch *.peg *.so dx7-test
-	rm -r $(BUNDLE)
+	rm -rf $(BUNDLE)
 
 install: $(BUNDLE)
 	mkdir -p $(INSTALL_DIR)
@@ -32,13 +31,13 @@ $(BUNDLE): manifest.ttl dx7.ttl dx7.so
 dx7-test: $(OBJECTS) dx7-test.o dx7.peg
 	$(CC) $(OBJECTS) -lm dx7-test.o -o $@
 
-dx7-test.o: dx7-test.cpp 
+dx7-test.o: dx7-test.cpp dx7.h
 	$(CC) -c $(CFLAGS) dx7-test.cpp
 
 dx7.so: $(OBJECTS) dx7.o
-	$(CC) $(LDFLAGS) $(OBJECTS) dx7.o -o $@
+	$(CC) $(OBJECTS) dx7.o $(LDFLAGS) -o $@
 
-dx7.o: dx7.cpp dx7.peg
+dx7.o: dx7.cpp dx7.peg dx7.h
 	$(CC) -c $(CFLAGS) dx7.cpp
 
 synth_unit.o: msfa/synth_unit.cc msfa/synth_unit.h

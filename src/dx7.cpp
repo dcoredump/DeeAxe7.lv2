@@ -1,7 +1,6 @@
 // from: http://ll-plugins.nongnu.org/lv2pftci/#A_synth
 
 #include <lvtk/synth.hpp>
-#include <string.h>
 #include "dx7.peg"
 #include "dx7.h"
 #include "freqlut.h"
@@ -10,8 +9,6 @@
 #include "pitchenv.h"
 #include "msfa/synth.h"
 #include "msfa/ringbuffer.h"
-
-static const float scaler = 0.00003051757813;
 
 DX7::DX7(double rate) : lvtk::Synth<DX7_Voice, DX7>(p_n_ports, p_lv2_events_in)
 {
@@ -134,7 +131,7 @@ void DX7_Voice::add_midi(uint8_t msg1, uint8_t msg2, uint8_t msg3)
 }
 
 #ifdef DEBUG
-void dx7_trace(const char *source, const char *fmt, ...) {
+void _trace(const char *source, const char *fmt, ...) {
     char output[4096];
     va_list argptr;
     va_start(argptr, fmt);

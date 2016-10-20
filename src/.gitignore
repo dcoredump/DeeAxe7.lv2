@@ -2,5 +2,7 @@
 *.so
 *.gch
 *.swp
+*.peg
+a.out
 dx7-test
 dx7.lv2/

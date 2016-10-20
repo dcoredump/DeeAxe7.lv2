@@ -25,21 +25,22 @@
 #include "msfa/synth_unit.h"
 #include "msfa/ringbuffer.h"
 
-void dexed_trace(const char *source, const char *fmt, ...);
+void _trace(const char *source, const char *fmt, ...);
 
 #define DX7_ID "0.0.1"
 
 #ifdef DEBUG
-    #define DEXED_VERSION DX7_ID " DEBUG"
-    #define TRACE(fmt, ...) dexed_trace(__PRETTY_FUNCTION__,fmt,##__VA_ARGS__)
+    #define DX7_VERSION DX7_ID " DEBUG"
+    #define TRACE(fmt, ...) _trace(__PRETTY_FUNCTION__,fmt,##__VA_ARGS__)
 #else
-    #define DEXED_VERSION DX7_ID
+    #define DX7_VERSION DX7_ID
     #define TRACE(fmt, ...)
 #endif
 
 //==============================================================================
-
+// Global vars
 RingBuffer ring_buffer_;
+static const float scaler = 0.00003051757813;
 
 //==============================================================================
 

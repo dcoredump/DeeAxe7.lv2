@@ -6,7 +6,7 @@
 @prefix ll: <http://ll-plugins.nongnu.org/lv2/namespace#>.
 @prefix pg: <http://ll-plugins.nongnu.org/lv2/ext/portgroups#>.
 
-<https://github.com/dcoredump/dx.lv2>
+<https://github.com/dcoredump/dx7.lv2>
     a lv2:InstrumentPlugin, lv2:Plugin ;
     ll:pegName "p";
 
@@ -1525,6 +1525,6 @@
 	lv2:portProperty lv2:integer ;
     ] ;
 
-    doap:name "Dexed" ;
+    doap:name "DX7" ;
     doap:maintainer [ foaf:name "dcoredump" ] .
 
