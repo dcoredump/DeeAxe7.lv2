@@ -44,11 +44,20 @@ int main(int argc, char **argv)
   outbuf16_=new int16_t[bufsize_];
   synth_unit_=new SynthUnit(&ring_buffer_);
 
-  uint8_t msg[3] = { 0x01, 64, 80 };
+  uint8_t msg[3] = { 0x9A, 64, 80 };
   ring_buffer_.Write(msg, 3);
 
-  uint32_t i;
 
-  for (i = 0; i < 255; ++i)
-    printf("%d:%02.10f\n",i,(float)outbuf16_[i]/INT32_MAX);
+  static const float scaler = 0.00003051757813;
+
+  uint32_t n;
+  for(n=0;n<10;n++)
+  { 
+  synth_unit_->GetSamples(bufsize_, outbuf16_);
+  uint32_t i;
+  for (i = 0; i <= 255; ++i)
+    printf("%d:%02.10f\n",i,outbuf16_[i] * scaler);
+  }
+
+  TRACE("Bye");
 }
