@@ -68,6 +68,51 @@ void DX7::post_process(uint32_t from, uint32_t to)
   TRACE("Bye");
 }
 
+// override the run() method
+void DX7::run(uint32_t sample_count)
+{
+    //D* synth = static_cast<D*>(this);
+    class DX7* synth = this;
+
+    // Zero output buffers so voices can add to them
+    for (unsigned i = 0; i < m_audio_ports.size(); ++i)
+        std::memset(p(m_audio_ports[i]), 0, sizeof(float) * sample_count);
+
+
+    // Make the port buffers available to the voices
+    for (unsigned i = 0; i < m_voices.size(); ++i)
+        m_voices[i]->set_port_buffers(Parent::m_ports);
+
+    const LV2_Atom_Sequence* seq = p<LV2_Atom_Sequence> (m_midi_input);
+    uint32_t last_frame = 0;
+
+    for (LV2_Atom_Event* ev = lv2_atom_sequence_begin (&seq->body);
+         !lv2_atom_sequence_is_end(&seq->body, seq->atom.size, ev);
+         ev = lv2_atom_sequence_next (ev))
+    {
+       synth->pre_process (last_frame, ev->time.frames);
+       for (uint32_t i = 0; i < m_voices.size(); ++i)
+          m_voices[i]->render (last_frame, ev->time.frames);
+       synth->post_process (last_frame, ev->time.frames);
+
+       if (ev->body.type == m_midi_type)
+          synth->handle_midi (ev->body.size, (uint8_t*) LV2_ATOM_BODY (&ev->body));
+       else
+          synth->handle_atom_event (ev);
+
+       last_frame = ev->time.frames;
+    }
+
+    if (last_frame < sample_count)
+    {
+       synth->pre_process (last_frame, sample_count);
+       //for (uint32_t i = 0; i < m_voices.size(); ++i)
+       //   m_voices[i]->render (last_frame, sample_count);
+       synth->render (last_frame, sample_count);
+       synth->post_process (last_frame, sample_count);
+    }
+}
+
 //==============================================================================
 
 DX7_Voice::DX7_Voice(double rate) : m_key(lvtk::INVALID_KEY), m_rate(rate)
@@ -108,6 +153,15 @@ void DX7_Voice::off(unsigned char velocity)
 unsigned char DX7_Voice::get_key(void) const
 {
   return m_key;
+}
+
+void DX7_Voice::render(uint32_t from, uint32_t to)
+{
+  uint32_t i;
+
+  TRACE("Hi");
+
+  TRACE("Bye");
 }
 
 /* void DX7_Voice::render(uint32_t from, uint32_t to)

@@ -52,7 +52,7 @@ class DX7_Voice : public lvtk::Voice
     void on(unsigned char key, unsigned char velocity);
     void off(unsigned char velocity);
     unsigned char get_key(void) const;
-//    void render(uint32_t from, uint32_t to);
+    void render(uint32_t from, uint32_t to);
 //    void post_process(uint32_t from, uint32_t to);
     void add_midi(uint8_t msg1, uint8_t msg2, uint8_t msg3);
 
@@ -72,6 +72,7 @@ class DX7 : public lvtk::Synth<DX7_Voice, DX7>
     ~DX7();
     void render(uint32_t from, uint32_t to);
     void post_process(uint32_t from, uint32_t to);
+    void run(uint32_t sample_count);
 
   protected:
 
