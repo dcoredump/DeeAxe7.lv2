@@ -100,7 +100,7 @@
         lv2:symbol "osc_key_sync" ;
         lv2:name "OSC KEY SYNC" ;
         lv2:default 0 ;
-        lv2:minimum 1 ;
+        lv2:minimum 0 ;
         lv2:maximum 1 ;
 	lv2:portProperty lv2:toggled, lv2:integer ;
     ] ,
