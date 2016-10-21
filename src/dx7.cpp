@@ -40,76 +40,45 @@ DX7::~DX7()
   TRACE("Bye");
 }
 
-void DX7::render(uint32_t from, uint32_t to)
-{
-  uint32_t i;
-
-  TRACE("Hi");
-
-  synth_unit_->GetSamples(to-from, outbuf16_);
-
-  for (i = from; i < to; ++i)
-    p(p_lv2_audio_out_1)[i]+=outbuf16_[i] * scaler;
-
-  TRACE("Bye");
-}
-
-void DX7::post_process(uint32_t from, uint32_t to)
-{
-  uint32_t i;
-
-  TRACE("Hi");
-
-  for (i = from; i < to; ++i)
-  {
-    p(p_lv2_audio_out_1)[i] *= *p(p_output);
-  }
-
-  TRACE("Bye");
-}
-
 // override the run() method
-void DX7::run(uint32_t sample_count)
+void DX7::run (uint32_t sample_count)
 {
-    //D* synth = static_cast<D*>(this);
-    class DX7* synth = this;
-
-    // Zero output buffers so voices can add to them
-    for (unsigned i = 0; i < m_audio_ports.size(); ++i)
-        std::memset(p(m_audio_ports[i]), 0, sizeof(float) * sample_count);
-
-
-    // Make the port buffers available to the voices
-    for (unsigned i = 0; i < m_voices.size(); ++i)
-        m_voices[i]->set_port_buffers(Parent::m_ports);
-
-    const LV2_Atom_Sequence* seq = p<LV2_Atom_Sequence> (m_midi_input);
-    uint32_t last_frame = 0;
+    const LV2_Atom_Sequence* seq = p<LV2_Atom_Sequence> (p_lv2_events_in);
+    float* output = p(p_lv2_audio_out_1);
+    uint32_t last_frame = 0, num_this_time = 0;
 
     for (LV2_Atom_Event* ev = lv2_atom_sequence_begin (&seq->body);
          !lv2_atom_sequence_is_end(&seq->body, seq->atom.size, ev);
          ev = lv2_atom_sequence_next (ev))
     {
-       synth->pre_process (last_frame, ev->time.frames);
-       for (uint32_t i = 0; i < m_voices.size(); ++i)
-          m_voices[i]->render (last_frame, ev->time.frames);
-       synth->post_process (last_frame, ev->time.frames);
+       num_this_time = ev->time.frames - last_frame;
 
+       // If it's midi, send it to the engine
        if (ev->body.type == m_midi_type)
-          synth->handle_midi (ev->body.size, (uint8_t*) LV2_ATOM_BODY (&ev->body));
-       else
-          synth->handle_atom_event (ev);
-
+          ring_buffer_.Write ((uint8_t*) LV2_ATOM_BODY (&ev->body), ev->body.size);
+      
+       // render audio from the last frame until the timestamp of this event
+       synth_unit_->GetSamples (num_this_time, outbuf16_);
+      
+       // i is the index of the engine's buf, which always starts at 0 (i think)
+       // j is the index of the plugin's float output buffer which will be the timestamp
+       // of the last processed atom event.
+       for (uint32_t i = 0, j = last_frame; i < num_this_time; ++i, ++j)
+         output[j] = static_cast<float> (outbuf16_[i]) * scaler;
+      
        last_frame = ev->time.frames;
     }
 
+    // render remaining samples if any left
     if (last_frame < sample_count)
     {
-       synth->pre_process (last_frame, sample_count);
-       //for (uint32_t i = 0; i < m_voices.size(); ++i)
-       //   m_voices[i]->render (last_frame, sample_count);
-       synth->render (last_frame, sample_count);
-       synth->post_process (last_frame, sample_count);
+       // do the same thing as above except from last frame until the end of
+       // the processing cycles last sample. at this point, all events have
+       // already been handled.
+       num_this_time = sample_count - last_frame;
+       synth_unit_->GetSamples (num_this_time, outbuf16_);
+       for (uint32_t i = 0, j = last_frame; i < num_this_time; ++i, ++j)
+         output[j] = static_cast<float> (outbuf16_[i]) * scaler;
     }
 }
 
@@ -133,10 +102,6 @@ void DX7_Voice::on(unsigned char key, unsigned char velocity)
 {
   TRACE("Hi");
 
-  m_key = key;
-
-  add_midi(0x91, key, velocity);
-
   TRACE("Bye");
 }
 
@@ -144,44 +109,12 @@ void DX7_Voice::off(unsigned char velocity)
 {
   TRACE("Hi");
 
-  add_midi(0x81, m_key, velocity);
-  m_key = lvtk::INVALID_KEY;
-
   TRACE("Bye");
 }
 
 unsigned char DX7_Voice::get_key(void) const
 {
   return m_key;
-}
-
-void DX7_Voice::render(uint32_t from, uint32_t to)
-{
-  uint32_t i;
-
-  TRACE("Hi");
-
-  TRACE("Bye");
-}
-
-/* void DX7_Voice::render(uint32_t from, uint32_t to)
-{
-  uint32_t i;
-
-  TRACE("Hi");
-
-  synth_unit_->GetSamples(to-from, outbuf16_);
-
-  for (i = from; i < to; ++i)
-    p(p_lv2_audio_out_1)[i]+=outbuf16_[i] * scaler);
-
-  TRACE("Bye");
-} */
-
-void DX7_Voice::add_midi(uint8_t msg1, uint8_t msg2, uint8_t msg3)
-{
-  uint8_t msg[3] = { msg1, msg2, msg3 };
-  ring_buffer_.Write(msg, 3);
 }
 
 #ifdef DEBUG
