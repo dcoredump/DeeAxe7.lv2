@@ -68,6 +68,8 @@ class DX7 : public lvtk::Synth<DX7_Voice, DX7>
     DX7(double rate);
     ~DX7();
     void run(uint32_t sample_count);
+    void post_process(uint32_t from, uint32_t to);
+    void set_params(void);
 
   protected:
 
@@ -76,18 +78,5 @@ class DX7 : public lvtk::Synth<DX7_Voice, DX7>
     int16_t* outbuf16_;
     uint32_t bufsize_;
 };
-
-// GLOBALS
-const uint8_t init_voice[] =
-      { 99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 7,
-        99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 7,
-        99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 7,
-        99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 7,
-        99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 7,
-        99, 99, 99, 99, 99, 99, 99, 00, 39, 0, 0, 0, 0, 0, 0, 0, 99, 0, 1, 0, 7,
-        99, 99, 99, 99, 50, 50, 50, 50, 0, 0, 1, 35, 0, 0, 0, 1, 0, 3, 24,
-        73, 78, 73, 84, 32, 86, 79, 73, 67, 69 };
-
-uint8_t data[156]; // program data
 
 #endif  // DX7_H_INCLUDED

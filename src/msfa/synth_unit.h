@@ -30,6 +30,8 @@ struct ActiveNote {
 
 class SynthUnit {
  public:
+  char unpacked_patch_[156]; // was private
+
   static void Init(double sample_rate);
 
   explicit SynthUnit(RingBuffer *ring_buffer);
@@ -60,8 +62,6 @@ class SynthUnit {
 
   uint8_t patch_data_[4096];
   int current_patch_;
-
-  char unpacked_patch_[156];
 
   // The original DX7 had one single LFO. Later units had an LFO per note.
   Lfo lfo_;
