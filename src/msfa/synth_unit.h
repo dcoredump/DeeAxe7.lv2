@@ -30,7 +30,11 @@ struct ActiveNote {
 
 class SynthUnit {
  public:
-  char unpacked_patch_[156]; // was private
+  // The following were private:
+  char unpacked_patch_[156];
+  // The original DX7 had one single LFO. Later units had an LFO per note.
+  Lfo lfo_;
+
 
   static void Init(double sample_rate);
 
@@ -62,9 +66,6 @@ class SynthUnit {
 
   uint8_t patch_data_[4096];
   int current_patch_;
-
-  // The original DX7 had one single LFO. Later units had an LFO per note.
-  Lfo lfo_;
 
   // in MIDI units (0x4000 is neutral)
   Controllers controllers_;

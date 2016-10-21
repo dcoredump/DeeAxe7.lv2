@@ -27,7 +27,8 @@ DX7::DX7(double rate) : lvtk::Synth<DX7_Voice, DX7>(p_n_ports, p_lv2_events_in)
   add_voices(new DX7_Voice(rate));
   add_audio_outputs(p_lv2_audio_out_1);
 
-  set_params();
+  //set_params();
+  //synth_unit_->lfo_.reset(synth_unit_->unpacked_patch_ + 137);
 
   TRACE("Bye");
 }
@@ -50,12 +51,13 @@ void DX7::pre_process(uint32_t from, uint32_t to)
 void DX7::post_process(uint32_t from, uint32_t to)
 {
   uint32_t i;
+  float* output = p(p_lv2_audio_out_1);
 
   TRACE("Hi");
 
   for (i = from; i < to; ++i)
   {
-    p(p_lv2_audio_out_1)[i] *= *p(p_output);
+    output[i] *= *p(p_output);
   }
 
   TRACE("Bye");
