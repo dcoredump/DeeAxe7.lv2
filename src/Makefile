@@ -1,7 +1,6 @@
 CC=g++
 BUNDLE = dx7.lv2
-#INSTALL_DIR = /home/pi/zynthian/zynthian-plugins/mod-lv2
-INSTALL_DIR = /tmp/lv2
+INSTALL_DIR = /home/pi/zynthian/zynthian-plugins/mod-lv2
 TARGET=dx7.so
 OBJECTS=synth_unit.o ringbuffer.o patch.o \
 	lfo.o dx7note.o freqlut.o sin.o exp2.o \
