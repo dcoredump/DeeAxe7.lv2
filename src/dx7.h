@@ -68,13 +68,14 @@ class DX7 : public lvtk::Synth<DX7_Voice, DX7>
     DX7(double rate);
     ~DX7();
     void run(uint32_t sample_count);
+    void update(void);
     void post_process(uint32_t from, uint32_t to);
     void set_params(void);
 
   protected:
 
   private:
-    SynthUnit *synth_unit_;
+    SynthUnit* synth_unit_;
     int16_t* outbuf16_;
     uint32_t bufsize_;
 };
