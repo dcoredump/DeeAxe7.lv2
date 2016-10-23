@@ -42,6 +42,11 @@ DX7::~DX7()
   TRACE("Bye");
 }
 
+void DX7::pre_process(uint32_t from, uint32_t to)
+{
+  set_params();
+}
+
 void DX7::post_process(uint32_t from, uint32_t to)
 {
   uint32_t i;
@@ -212,11 +217,6 @@ void DX7::set_params(void)
   synth_unit_->unpacked_patch_[144]=static_cast<char>(*p(p_middle_c));
   // 10 bytes (145-154) are the name of the patch
   synth_unit_->unpacked_patch_[155]=0x3f; // operator on/off
-}
-
-void DX7::update ()
-{
-  set_params();
 }
 
 // override the run() method
