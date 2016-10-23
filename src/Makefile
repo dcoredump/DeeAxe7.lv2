@@ -19,7 +19,6 @@ install: $(BUNDLE)
 	mkdir -p $(INSTALL_DIR)
 	rm -rf $(INSTALL_DIR)/$(BUNDLE)
 	cp -R $(BUNDLE) $(INSTALL_DIR)
-
 dx7.peg: dx7.ttl
 	lv2peg dx7.ttl dx7.peg
 
@@ -27,7 +26,10 @@ $(BUNDLE): manifest.ttl dx7.ttl dx7.so
 	rm -rf $(BUNDLE)
 	mkdir $(BUNDLE)
 	cp $^ $(BUNDLE)
-
+#	mkdir $(BUNDLE)/presets
+#	cd $(BUNDLE)/presets
+#	../../../bin/dx7sysex2lv2 ../../../patches/rom1A.syx
+	
 dx7-test: $(OBJECTS) dx7-test.o dx7.peg
 	$(CC) $(OBJECTS) -lm dx7-test.o -o $@
 
