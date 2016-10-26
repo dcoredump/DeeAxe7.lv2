@@ -1,0 +1,7 @@
+*.o
+*.so
+*.gch
+*.swp
+*.peg
+a.out
+lv2pftci-beep2.lv2/

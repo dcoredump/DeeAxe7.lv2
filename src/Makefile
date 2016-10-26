@@ -1,4 +1,4 @@
-DEBUG=-DDEBUG=1
+#DEBUG=-DDEBUG=1
 CC=g++
 BUNDLE = dx7.lv2
 INSTALL_DIR = /home/pi/zynthian/zynthian-plugins/mod-lv2

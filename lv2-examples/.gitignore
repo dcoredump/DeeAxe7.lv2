@@ -1,0 +1,6 @@
+*.o
+*.so
+*.gch
+*.swp
+*.peg
+a.out

@@ -10,7 +10,7 @@
 #include "msfa/synth.h"
 #include "msfa/ringbuffer.h"
 
-DX7::DX7(double rate) : lvtk::Synth<DX7_Voice, DX7>(p_n_ports, p_lv2_events_in)
+DX7::DX7(double rate) : lvtk::Synth<DX7_Voice, DX7>(p_n_ports, p_midi_in)
 {
   TRACE("Hi");
 
@@ -25,7 +25,7 @@ DX7::DX7(double rate) : lvtk::Synth<DX7_Voice, DX7>(p_n_ports, p_lv2_events_in)
   synth_unit_=new SynthUnit(&ring_buffer_);
 
   add_voices(new DX7_Voice(rate));
-  add_audio_outputs(p_lv2_audio_out_1);
+  add_audio_outputs(p_audio_out);
 
   //set_params();
   //synth_unit_->lfo_.reset(synth_unit_->unpacked_patch_ + 137);
@@ -39,26 +39,6 @@ DX7::~DX7()
 
   delete synth_unit_;
   delete [] outbuf16_;
-
-  TRACE("Bye");
-}
-
-void DX7::pre_process(uint32_t from, uint32_t to)
-{
-  set_params();
-}
-
-void DX7::post_process(uint32_t from, uint32_t to)
-{
-  uint32_t i;
-  float* output = p(p_lv2_audio_out_1);
-
-  TRACE("Hi");
-
-  for (i = from; i < to; ++i)
-  {
-    output[i] *= *p(p_output);
-  }
 
   TRACE("Bye");
 }
@@ -220,7 +200,7 @@ void DX7::set_params(void)
   synth_unit_->unpacked_patch_[143]=*p(p_p_mode_sens_);
   synth_unit_->unpacked_patch_[144]=*p(p_middle_c);
   // 10 bytes (145-154) are the name of the patch
-  synth_unit_->unpacked_patch_[155]=0x3f; // operator on/off
+  synth_unit_->unpacked_patch_[155]=0x3f; // operator on/off => All OPs on
 
   TRACE("Bye");
 }
@@ -228,16 +208,16 @@ void DX7::set_params(void)
 // override the run() method
 void DX7::run (uint32_t sample_count)
 {
-    const LV2_Atom_Sequence* seq = p<LV2_Atom_Sequence> (p_lv2_events_in);
-    float* output = p(p_lv2_audio_out_1);
+    const LV2_Atom_Sequence* seq = p<LV2_Atom_Sequence> (p_midi_in);
+    float* output = p(p_audio_out);
     uint32_t last_frame = 0, num_this_time = 0;
+    float level=*p(p_output)*scaler;
 
     for (LV2_Atom_Event* ev = lv2_atom_sequence_begin (&seq->body);
          !lv2_atom_sequence_is_end(&seq->body, seq->atom.size, ev);
          ev = lv2_atom_sequence_next (ev))
     {
-       // pre processing of audio data
-       pre_process (last_frame, ev->time.frames);
+       //set_params(); // pre_process: copy actual voice params
 
        num_this_time = ev->time.frames - last_frame;
 
@@ -252,11 +232,8 @@ void DX7::run (uint32_t sample_count)
        // j is the index of the plugin's float output buffer which will be the timestamp
        // of the last processed atom event.
        for (uint32_t i = 0, j = last_frame; i < num_this_time; ++i, ++j)
-         output[j] = static_cast<float> (outbuf16_[i]) * scaler;
+         output[j] = (static_cast<float> (outbuf16_[i])) * level;
 
-       // post processing of audio data
-       post_process (last_frame, ev->time.frames);
-  
        last_frame = ev->time.frames;
     }
 
@@ -267,16 +244,10 @@ void DX7::run (uint32_t sample_count)
        // the processing cycles last sample. at this point, all events have
        // already been handled.
 
-       // pre processing of audio data
-       pre_process (last_frame, sample_count);
-
        num_this_time = sample_count - last_frame;
        synth_unit_->GetSamples (num_this_time, outbuf16_);
        for (uint32_t i = 0, j = last_frame; i < num_this_time; ++i, ++j)
-         output[j] = static_cast<float> (outbuf16_[i]) * scaler;
-
-       // post processing of audio data
-       post_process (last_frame, sample_count);
+         output[j] = (static_cast<float> (outbuf16_[i])) * level;
     }
 }
 

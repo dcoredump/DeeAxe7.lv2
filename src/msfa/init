@@ -1,0 +1,221 @@
+../dx7.cpp:// from: http://ll-plugins.nongnu.org/lv2pftci/#A_synth
+../dx7.cpp:  //synth_unit_->lfo_.reset(synth_unit_->unpacked_patch_ + 137);
+../dx7.cpp:  synth_unit_->unpacked_patch_[0]=*p(p_op6_eg_rate_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[1]=*p(p_op6_eg_rate_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[2]=*p(p_op6_eg_rate_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[3]=*p(p_op6_eg_rate_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[4]=*p(p_op6_eg_level_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[5]=*p(p_op6_eg_level_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[6]=*p(p_op6_eg_level_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[7]=*p(p_op6_eg_level_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[8]=*p(p_op6_output_level);
+../dx7.cpp:  synth_unit_->unpacked_patch_[9]=*p(p_op6_mode);
+../dx7.cpp:  synth_unit_->unpacked_patch_[10]=*p(p_op6_f_coarse);
+../dx7.cpp:  synth_unit_->unpacked_patch_[11]=*p(p_op6_f_fine);
+../dx7.cpp:  synth_unit_->unpacked_patch_[12]=*p(p_op6_osc_detune);
+../dx7.cpp:  synth_unit_->unpacked_patch_[13]=*p(p_op6_break_point);
+../dx7.cpp:  synth_unit_->unpacked_patch_[14]=*p(p_op6_l_scale_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[15]=*p(p_op6_r_scale_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[16]=*p(p_op6_l_key_scale);
+../dx7.cpp:  synth_unit_->unpacked_patch_[17]=*p(p_op6_r_key_scale);
+../dx7.cpp:  synth_unit_->unpacked_patch_[18]=*p(p_op6_rate_scaling);
+../dx7.cpp:  synth_unit_->unpacked_patch_[19]=*p(p_op6_a_mod_sens_);
+../dx7.cpp:  synth_unit_->unpacked_patch_[20]=*p(p_op6_key_velocity);
+../dx7.cpp:  synth_unit_->unpacked_patch_[21]=*p(p_op5_eg_rate_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[22]=*p(p_op5_eg_rate_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[23]=*p(p_op5_eg_rate_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[24]=*p(p_op5_eg_rate_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[25]=*p(p_op5_eg_level_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[26]=*p(p_op5_eg_level_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[27]=*p(p_op5_eg_level_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[28]=*p(p_op5_eg_level_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[29]=*p(p_op5_output_level);
+../dx7.cpp:  synth_unit_->unpacked_patch_[30]=*p(p_op5_mode);
+../dx7.cpp:  synth_unit_->unpacked_patch_[31]=*p(p_op5_f_coarse);
+../dx7.cpp:  synth_unit_->unpacked_patch_[32]=*p(p_op5_f_fine);
+../dx7.cpp:  synth_unit_->unpacked_patch_[33]=*p(p_op5_osc_detune);
+../dx7.cpp:  synth_unit_->unpacked_patch_[34]=*p(p_op5_break_point);
+../dx7.cpp:  synth_unit_->unpacked_patch_[35]=*p(p_op5_l_scale_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[36]=*p(p_op5_r_scale_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[37]=*p(p_op5_l_key_scale);
+../dx7.cpp:  synth_unit_->unpacked_patch_[38]=*p(p_op5_r_key_scale);
+../dx7.cpp:  synth_unit_->unpacked_patch_[39]=*p(p_op5_rate_scaling);
+../dx7.cpp:  synth_unit_->unpacked_patch_[40]=*p(p_op5_a_mod_sens_);
+../dx7.cpp:  synth_unit_->unpacked_patch_[41]=*p(p_op5_key_velocity);
+../dx7.cpp:  synth_unit_->unpacked_patch_[42]=*p(p_op4_eg_rate_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[43]=*p(p_op4_eg_rate_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[44]=*p(p_op4_eg_rate_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[45]=*p(p_op4_eg_rate_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[46]=*p(p_op4_eg_level_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[47]=*p(p_op4_eg_level_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[48]=*p(p_op4_eg_level_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[49]=*p(p_op4_eg_level_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[50]=*p(p_op4_output_level);
+../dx7.cpp:  synth_unit_->unpacked_patch_[51]=*p(p_op4_mode);
+../dx7.cpp:  synth_unit_->unpacked_patch_[52]=*p(p_op4_f_coarse);
+../dx7.cpp:  synth_unit_->unpacked_patch_[53]=*p(p_op4_f_fine);
+../dx7.cpp:  synth_unit_->unpacked_patch_[54]=*p(p_op4_osc_detune);
+../dx7.cpp:  synth_unit_->unpacked_patch_[55]=*p(p_op4_break_point);
+../dx7.cpp:  synth_unit_->unpacked_patch_[56]=*p(p_op4_l_scale_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[57]=*p(p_op4_r_scale_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[58]=*p(p_op4_l_key_scale);
+../dx7.cpp:  synth_unit_->unpacked_patch_[59]=*p(p_op4_r_key_scale);
+../dx7.cpp:  synth_unit_->unpacked_patch_[60]=*p(p_op4_rate_scaling);
+../dx7.cpp:  synth_unit_->unpacked_patch_[61]=*p(p_op4_a_mod_sens_);
+../dx7.cpp:  synth_unit_->unpacked_patch_[62]=*p(p_op4_key_velocity);
+../dx7.cpp:  synth_unit_->unpacked_patch_[63]=*p(p_op3_eg_rate_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[64]=*p(p_op3_eg_rate_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[65]=*p(p_op3_eg_rate_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[66]=*p(p_op3_eg_rate_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[67]=*p(p_op3_eg_level_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[68]=*p(p_op3_eg_level_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[69]=*p(p_op3_eg_level_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[70]=*p(p_op3_eg_level_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[71]=*p(p_op3_output_level);
+../dx7.cpp:  synth_unit_->unpacked_patch_[72]=*p(p_op3_mode);
+../dx7.cpp:  synth_unit_->unpacked_patch_[73]=*p(p_op3_f_coarse);
+../dx7.cpp:  synth_unit_->unpacked_patch_[74]=*p(p_op3_f_fine);
+../dx7.cpp:  synth_unit_->unpacked_patch_[75]=*p(p_op3_osc_detune);
+../dx7.cpp:  synth_unit_->unpacked_patch_[76]=*p(p_op3_break_point);
+../dx7.cpp:  synth_unit_->unpacked_patch_[77]=*p(p_op3_l_scale_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[78]=*p(p_op3_r_scale_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[79]=*p(p_op3_l_key_scale);
+../dx7.cpp:  synth_unit_->unpacked_patch_[80]=*p(p_op3_r_key_scale);
+../dx7.cpp:  synth_unit_->unpacked_patch_[81]=*p(p_op3_rate_scaling);
+../dx7.cpp:  synth_unit_->unpacked_patch_[82]=*p(p_op3_a_mod_sens_);
+../dx7.cpp:  synth_unit_->unpacked_patch_[83]=*p(p_op3_key_velocity);
+../dx7.cpp:  synth_unit_->unpacked_patch_[84]=*p(p_op2_eg_rate_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[85]=*p(p_op2_eg_rate_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[86]=*p(p_op2_eg_rate_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[87]=*p(p_op2_eg_rate_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[88]=*p(p_op2_eg_level_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[89]=*p(p_op2_eg_level_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[90]=*p(p_op2_eg_level_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[91]=*p(p_op2_eg_level_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[92]=*p(p_op2_output_level);
+../dx7.cpp:  synth_unit_->unpacked_patch_[93]=*p(p_op2_mode);
+../dx7.cpp:  synth_unit_->unpacked_patch_[94]=*p(p_op2_f_coarse);
+../dx7.cpp:  synth_unit_->unpacked_patch_[95]=*p(p_op2_f_fine);
+../dx7.cpp:  synth_unit_->unpacked_patch_[96]=*p(p_op2_osc_detune);
+../dx7.cpp:  synth_unit_->unpacked_patch_[97]=*p(p_op2_break_point);
+../dx7.cpp:  synth_unit_->unpacked_patch_[98]=*p(p_op2_l_scale_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[99]=*p(p_op2_r_scale_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[100]=*p(p_op2_l_key_scale);
+../dx7.cpp:  synth_unit_->unpacked_patch_[101]=*p(p_op2_r_key_scale);
+../dx7.cpp:  synth_unit_->unpacked_patch_[102]=*p(p_op2_rate_scaling);
+../dx7.cpp:  synth_unit_->unpacked_patch_[103]=*p(p_op2_a_mod_sens_);
+../dx7.cpp:  synth_unit_->unpacked_patch_[104]=*p(p_op2_key_velocity);
+../dx7.cpp:  synth_unit_->unpacked_patch_[105]=*p(p_op1_eg_rate_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[106]=*p(p_op1_eg_rate_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[107]=*p(p_op1_eg_rate_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[108]=*p(p_op1_eg_rate_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[109]=*p(p_op1_eg_level_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[110]=*p(p_op1_eg_level_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[111]=*p(p_op1_eg_level_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[112]=*p(p_op1_eg_level_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[113]=*p(p_op1_output_level);
+../dx7.cpp:  synth_unit_->unpacked_patch_[114]=*p(p_op1_mode);
+../dx7.cpp:  synth_unit_->unpacked_patch_[115]=*p(p_op1_f_coarse);
+../dx7.cpp:  synth_unit_->unpacked_patch_[116]=*p(p_op1_f_fine);
+../dx7.cpp:  synth_unit_->unpacked_patch_[117]=*p(p_op1_osc_detune);
+../dx7.cpp:  synth_unit_->unpacked_patch_[118]=*p(p_op1_break_point);
+../dx7.cpp:  synth_unit_->unpacked_patch_[119]=*p(p_op1_l_scale_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[120]=*p(p_op1_r_scale_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[121]=*p(p_op1_l_key_scale);
+../dx7.cpp:  synth_unit_->unpacked_patch_[122]=*p(p_op1_r_key_scale);
+../dx7.cpp:  synth_unit_->unpacked_patch_[123]=*p(p_op1_rate_scaling);
+../dx7.cpp:  synth_unit_->unpacked_patch_[124]=*p(p_op1_a_mod_sens_);
+../dx7.cpp:  synth_unit_->unpacked_patch_[125]=*p(p_op1_key_velocity);
+../dx7.cpp:  synth_unit_->unpacked_patch_[126]=*p(p_pitch_eg_rate_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[127]=*p(p_pitch_eg_rate_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[128]=*p(p_pitch_eg_rate_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[129]=*p(p_pitch_eg_rate_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[130]=*p(p_pitch_eg_level_1);
+../dx7.cpp:  synth_unit_->unpacked_patch_[131]=*p(p_pitch_eg_level_2);
+../dx7.cpp:  synth_unit_->unpacked_patch_[132]=*p(p_pitch_eg_level_3);
+../dx7.cpp:  synth_unit_->unpacked_patch_[133]=*p(p_pitch_eg_level_4);
+../dx7.cpp:  synth_unit_->unpacked_patch_[134]=*p(p_algorithm);
+../dx7.cpp:  synth_unit_->unpacked_patch_[135]=*p(p_feedback);
+../dx7.cpp:  synth_unit_->unpacked_patch_[136]=*p(p_osc_key_sync);
+../dx7.cpp:  synth_unit_->unpacked_patch_[137]=*p(p_lfo_speed);
+../dx7.cpp:  synth_unit_->unpacked_patch_[138]=*p(p_lfo_delay);
+../dx7.cpp:  synth_unit_->unpacked_patch_[139]=*p(p_lfo_pm_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[140]=*p(p_lfo_am_depth);
+../dx7.cpp:  synth_unit_->unpacked_patch_[141]=*p(p_lfo_key_sync);
+../dx7.cpp:  synth_unit_->unpacked_patch_[142]=*p(p_lfo_wave);
+../dx7.cpp:  synth_unit_->unpacked_patch_[143]=*p(p_p_mode_sens_);
+../dx7.cpp:  synth_unit_->unpacked_patch_[144]=*p(p_middle_c);
+../dx7.cpp:  // 10 bytes (145-154) are the name of the patch
+../dx7.cpp:  synth_unit_->unpacked_patch_[155]=0x3f; // operator on/off
+../dx7.cpp:    for (LV2_Atom_Event* ev = lv2_atom_sequence_begin (&seq->body);
+../dx7.cpp:         !lv2_atom_sequence_is_end(&seq->body, seq->atom.size, ev);
+../dx7.cpp:       num_this_time = ev->time.frames - last_frame;
+../dx7.cpp:       if (ev->body.type == m_midi_type)
+../dx7.cpp:          ring_buffer_.Write ((uint8_t*) LV2_ATOM_BODY (&ev->body), ev->body.size);
+../dx7.cpp:       synth_unit_->GetSamples (num_this_time, outbuf16_);
+../dx7.cpp:       last_frame = ev->time.frames;
+../dx7.cpp:       num_this_time = sample_count - last_frame;
+../dx7.cpp:       synth_unit_->GetSamples (num_this_time, outbuf16_);
+../dx7.h: * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+Binary file ../dx7note.o matches
+Binary file ../dx7.o matches
+../dx7.peg:  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
+../dx7.peg:  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
+../dx7.peg:  { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
+../dx7.peg:  { -7, 7, 0, 0, 0, 0 }, 
+../dx7.peg:  { -7, 7, 0, 0, 0, 0 }, 
+../dx7.peg:  { -7, 7, 0, 0, 0, 0 }, 
+../dx7.peg:  { -7, 7, 0, 0, 0, 0 }, 
+../dx7.peg:  { -7, 7, 0, 0, 0, 0 }, 
+../dx7.peg:  { -7, 7, 7, 0, 0, 0 }, 
+Binary file ../dx7.so matches
+../dx7.ttl:@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+../dx7.ttl:@prefix ll: <http://ll-plugins.nongnu.org/lv2/namespace#>.
+../dx7.ttl:@prefix pg: <http://ll-plugins.nongnu.org/lv2/ext/portgroups#>.
+../dx7.ttl:        lv2:portProperty lv2:toggled, <http://lv2plug.in/ns/ext/port-props#notOnGUI> ;
+../dx7.ttl:        lv2:minimum -7 ;
+../dx7.ttl:        lv2:minimum -7 ;
+../dx7.ttl:        lv2:minimum -7 ;
+../dx7.ttl:        lv2:minimum -7 ;
+../dx7.ttl:        lv2:minimum -7 ;
+../dx7.ttl:        lv2:minimum -7  ;
+Binary file ../env.o matches
+Binary file ../exp2.o matches
+Binary file ../fm_core.o matches
+Binary file ../fm_op_kernel.o matches
+Binary file ../freqlut.o matches
+Binary file ../lfo.o matches
+../Makefile:#DEBUG=-DDEBUG=1
+../Makefile:INSTALL_DIR = /home/pi/zynthian/zynthian-plugins/mod-lv2
+../Makefile:CFLAGS=-O2 -fPIC -DPIC $(DEBUG) -std=c++11 -I. -I./msfa -I/usr/local/include/lvtk-2
+../Makefile:LDFLAGS=-shared -L/usr/local/lib -llvtk_plugin2 -llilv-0
+../Makefile:	rm -f *.o *~ *.bak *.gch *.peg *.so dx7-test
+../Makefile:	rm -rf $(BUNDLE)
+../Makefile:	mkdir -p $(INSTALL_DIR)
+../Makefile:	rm -rf $(INSTALL_DIR)/$(BUNDLE)
+../Makefile:	cp -R $(BUNDLE) $(INSTALL_DIR)
+../Makefile:	rm -rf $(BUNDLE)
+../Makefile:dx7-test: $(OBJECTS) dx7-test.o dx7.peg
+../Makefile:	$(CC) $(OBJECTS) -lm dx7-test.o -o $@
+../Makefile:dx7-test.o: dx7-test.cpp dx7.h
+../Makefile:	$(CC) -c $(CFLAGS) dx7-test.cpp
+../Makefile:	$(CC) $(OBJECTS) dx7.o $(LDFLAGS) -o $@
+../Makefile:	$(CC) -c $(CFLAGS) dx7.cpp
+../Makefile:	$(CC) -c $(CFLAGS) msfa/synth_unit.cc
+../Makefile:	$(CC) -c $(CFLAGS) msfa/ringbuffer.cc
+../Makefile:	$(CC) -c $(CFLAGS) msfa/patch.cc
+../Makefile:	$(CC) -c $(CFLAGS) msfa/lfo.cc
+../Makefile:	$(CC) -c $(CFLAGS) msfa/dx7note.cc
+../Makefile:	$(CC) -c $(CFLAGS) msfa/freqlut.cc
+../Makefile:	$(CC) -c $(CFLAGS) msfa/sin.cc
+../Makefile:	$(CC) -c $(CFLAGS) msfa/exp2.cc
+../Makefile:	$(CC) -c $(CFLAGS) msfa/fm_core.cc
+../Makefile:	$(CC) -c $(CFLAGS) msfa/pitchenv.cc
+../Makefile:	$(CC) -c $(CFLAGS) msfa/env.cc
+../Makefile:	$(CC) -c $(CFLAGS) msfa/fm_op_kernel.cc
+../manifest.ttl:@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+Binary file ../patch.o matches
+Binary file ../pitchenv.o matches
+Binary file ../ringbuffer.o matches
+Binary file ../sin.o matches
+Binary file ../synth_unit.o matches

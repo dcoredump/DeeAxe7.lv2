@@ -1,26 +1,30 @@
-@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
-@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix doap: <http://usefulinc.com/ns/doap#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix ll: <http://ll-plugins.nongnu.org/lv2/namespace#>.
-@prefix pg: <http://ll-plugins.nongnu.org/lv2/ext/portgroups#>.
+@prefix ll:   <http://ll-plugins.nongnu.org/lv2/namespace#>.
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#>.
+@prefix pg:   <http://ll-plugins.nongnu.org/lv2/ext/portgroups#>.
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix ui:    <http://lv2plug.in/ns/extensions/ui#>.
+@prefix urid:  <http://lv2plug.in/ns/ext/urid#>.
 
 <https://github.com/dcoredump/dx7.lv2>
     a lv2:InstrumentPlugin, lv2:Plugin ;
+    lv2:binary <dx7.so> ;
     ll:pegName "p";
 
     lv2:port [
         a lv2:InputPort, atom:AtomPort ;
         atom:bufferType atom:Sequence ;
-        atom:supports <http://lv2plug.in/ns/ext/midi#MidiEvent> ;
+        atom:supports <http://lv2plug.in/ns/ext/midi#MidiEvent>,
+                      <http://lv2plug.in/ns/ext/patch#Message> ;
         lv2:index 0 ;
-        lv2:symbol "lv2_events_in" ;
-        lv2:name "Events Input" ;
+        lv2:symbol "midi_in" ;
+        lv2:name "MIDI Input" ;
         lv2:designation lv2:control ;
-    ] ;
-
-    lv2:port [
+    ] ,
+    [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 1 ;
         lv2:symbol "lv2_freewheel" ;
@@ -38,16 +42,14 @@
         lv2:name "Latency" ;
         lv2:designation <http://lv2plug.in/ns/lv2core#latency> ;
         lv2:portProperty lv2:reportsLatency, lv2:integer ;
-    ] ;
-
-    lv2:port [
+    ] ,
+    [
         a lv2:OutputPort, lv2:AudioPort ;
         lv2:index 3 ;
-        lv2:symbol "lv2_audio_out_1" ;
-        lv2:name "Audio Output 1" ;
-    ] ;
-
-    lv2:port [
+        lv2:symbol "audio_out" ;
+        lv2:name "Audio Output" ;
+    ] ,
+    [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 4 ;
         lv2:symbol "cutoff" ;
