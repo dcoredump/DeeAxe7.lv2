@@ -3,10 +3,28 @@
 # https://github.com/rogerallen/dxsyx/blob/master/dx7-sysex-format.txt
 #
 
-$LV2_BUNDLE="dx7.lv2";
+$LV2_BUNDLE_NAME="dx7_lv2";
+$LV2_INSTALL_PATH=$ENV{'HOME'}."/.lv2";
 
-open(SYSEX,"<$ARGV[0]") || die ("Cannot open \'$ARGV[0]\': $!");
+$SYSEX=$ARGV[0];
+$BANK=$SYSEX;
+$BANK=~s{.*/}{};      # removes path  
+$BANK=~s{\.[^.]+$}{}; # removes extension
+
+open(SYSEX,"<$SYSEX") || die ("Cannot open \'$SYSEX\': $!");
 binmode(SYSEX);
+
+## Create preset directory
+#if(! -d $LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME)
+#{
+#	mkdir($LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME) || die ("Cannot create \'".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."\': $!");
+#}
+
+## Create bank directory
+#if(! -d $LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."/".$BANK)
+#{
+#	mkdir($LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."/".$BANK) || die ("Cannot create \'".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."/".$BANK."\': $!");
+#}
 
 # Header
 sysread(SYSEX,$l,6);
@@ -93,30 +111,33 @@ sub read_one_patch
 	$dx{'NAME'}=~tr/\//-/;
 	$dx{'FILENAME'}=$dx{'NAME'};
 	$dx{'FILENAME'}=~tr/ /_/;
+	$dx{'FILENAME'}=~tr/-/_/;
 }
 
 sub write_one_lv2_patch
 {
-	$dname=$LV2_BUNDLE."-".$dx{'FILENAME'};
-	mkdir($dname)||die("Cannot create \'$dname\': $!\n");
+	# Create patch dir
+	mkdir($LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."-".$BANK."_".$dx{'FILENAME'}.".lv2")||die("Cannot mkdir \'".$LV2_BUNDLE_NAME."-".$BANK."_"-$dx{'FILENAME'}.".lv2\': $!\n");
 
-	open(MANIFEST,">$dname/manifest.ttl")||die("Cannot open \'$dname/manifest.ttl\': $!\n");
-	print MANIFEST "\@prefix atom: <http://lv2plug.in/ns/ext/atom#> .\n";
-	print MANIFEST "\@prefix lv2: <http://lv2plug.in/ns/lv2core#> .\n";
-	print MANIFEST "\@prefix pset: <http://lv2plug.in/ns/ext/presets#> .\n";
-	print MANIFEST "\@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n";
-	print MANIFEST "\@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
-	print MANIFEST "\@prefix state: <http://lv2plug.in/ns/ext/state#> .\n";
-	print MANIFEST "\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
-	print MANIFEST "\n";
-	print MANIFEST "<".$dx{'NAME'}.".ttl>\n";
-	print MANIFEST "\n";
-	print MANIFEST "        lv2:appliesTo <https://github.com/dcoredump/dx7.lv2> ;\n";
-	print MANIFEST "        a pset:Preset ;\n";
-	print MANIFEST "        rdfs:seeAlso <".$dx{'NAME'}.".ttl> .\n";
-	close(MANIFEST);
+	# Write manifest.ttl
+	open(MANIFEST,">".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."-".$BANK."_".$dx{'FILENAME'}.".lv2/manifest.ttl")||die("Cannot open \'".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."-".$BANK."_".$dx{'FILENAME'}.".lv2/manifest.ttl\': $!\n");
+        print MANIFEST "\@prefix atom: <http://lv2plug.in/ns/ext/atom#> .\n";
+        print MANIFEST "\@prefix lv2: <http://lv2plug.in/ns/lv2core#> .\n";
+        print MANIFEST "\@prefix pset: <http://lv2plug.in/ns/ext/presets#> .\n";
+        print MANIFEST "\@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n";
+        print MANIFEST "\@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
+        print MANIFEST "\@prefix state: <http://lv2plug.in/ns/ext/state#> .\n";
+        print MANIFEST "\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
+        print MANIFEST "\n";
+        print MANIFEST "<".$BANK."_".$dx{'FILENAME'}.".ttl>\n";
+        print MANIFEST "        lv2:appliesTo <https://github.com/dcoredump/dx7.lv2> ;\n";
+        print MANIFEST "        a pset:Preset ;\n";
+        print MANIFEST "        rdfs:seeAlso <".$BANK."_".$dx{'FILENAME'}.".ttl> .\n";
+        close(MANIFEST);
 
-	open(TTL,">$dname/".$dx{'NAME'}.".ttl")||die("Cannot open \'$dname/".$dx{'NAME'}.".ttl\': $!\n");
+
+	#open(TTL,">".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."/".$BANK."/".$dx{'FILENAME'}.".ttl")||die("Cannot open \'".$LV2_BUNDLE_NAME."-/".$BANK."/".$dx{'FILENAME'}.".ttl\': $!\n");
+	open(TTL,">".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."-".$BANK."_".$dx{'FILENAME'}.".lv2/".$BANK."_".$dx{'FILENAME'}.".ttl")||die("Cannot open \'".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."-".$BANK."_".$dx{'FILENAME'}.".lv2/".$BANK."_".$dx{'FILENAME'}.".ttl\': $!\n");
 	print TTL "\@prefix atom: <http://lv2plug.in/ns/ext/atom#> .\n";
 	print TTL "\@prefix lv2: <http://lv2plug.in/ns/lv2core#> .\n";
 	print TTL "\@prefix pset: <http://lv2plug.in/ns/ext/presets#> .\n";
@@ -192,5 +213,4 @@ sub print_port
 	{
 		print TTL "        ] .\n";
 	}
-		
 }

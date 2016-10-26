@@ -1,0 +1,33 @@
+#!/bin/sh
+
+LV2_BUNDLE_NAME="dx7.lv2";
+LV2_INSTALL_PATH="$HOME/.lv2";
+
+mkdir -p "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME"
+rm -f "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+
+echo "@prefix atom: <http://lv2plug.in/ns/ext/atom#> ." >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+echo "@prefix lv2: <http://lv2plug.in/ns/lv2core#> ." >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+echo "@prefix pset: <http://lv2plug.in/ns/ext/presets#> ." >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+echo "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ." >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+echo "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> ." >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+echo "@prefix state: <http://lv2plug.in/ns/ext/state#> ." >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+echo "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> ." >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+echo "" >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+
+for TTL in `find "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/" -iname "*.ttl"`
+do
+	#BANK=`echo $TTL | cut -d"/" -f6`
+	#PATCH=`echo $TTL | cut -d"/" -f7`
+	PATCH=`echo $TTL | cut -d"/" -f6`
+
+	if [ ! -z $PATCH ]
+	then
+		echo "<$PATCH>" >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+		echo "        lv2:appliesTo <https://github.com/asb2m10/dexed> ;" >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+		echo "        a pset:Preset ;" >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+		#echo "        rdfs:seeAlso <$BANK/$PATCH> ." >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+		echo "        rdfs:seeAlso <$PATCH> ." >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+		echo "" >> "$LV2_INSTALL_PATH/$LV2_BUNDLE_NAME/manifest.ttl"
+	fi
+done
