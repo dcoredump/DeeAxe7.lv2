@@ -3,8 +3,9 @@
 # https://github.com/rogerallen/dxsyx/blob/master/dx7-sysex-format.txt
 #
 
-open(SYSEX,"<$ARGV[0]") || die ("Cannot open \'$ARGV[0]\': $!");
+$LV2_BUNDLE="dx7.lv2";
 
+open(SYSEX,"<$ARGV[0]") || die ("Cannot open \'$ARGV[0]\': $!");
 binmode(SYSEX);
 
 # Header
@@ -87,14 +88,16 @@ sub read_one_patch
 	$dx{'LFO_KEY_SYNC'}=($tmp & 1);
 	$dx{'TRANSPOSE'}=(unpack("C",substr($patch,117,1)) & 63);
 	$dx{'NAME'}=substr($patch,118,10);
-	$dx{'NAME'}=~tr/ /_/;
+	$dx{'NAME'}=~ s/\s+$//; # right trim
 	$dx{'NAME'}=~s/\"//g;
 	$dx{'NAME'}=~tr/\//-/;
+	$dx{'FILENAME'}=$dx{'NAME'};
+	$dx{'FILENAME'}=~tr/ /_/;
 }
 
 sub write_one_lv2_patch
 {
-	$dname="dexed-".$dx{'NAME'};
+	$dname=$LV2_BUNDLE."-".$dx{'FILENAME'};
 	mkdir($dname)||die("Cannot create \'$dname\': $!\n");
 
 	open(MANIFEST,">$dname/manifest.ttl")||die("Cannot open \'$dname/manifest.ttl\': $!\n");
@@ -108,7 +111,7 @@ sub write_one_lv2_patch
 	print MANIFEST "\n";
 	print MANIFEST "<".$dx{'NAME'}.".ttl>\n";
 	print MANIFEST "\n";
-	print MANIFEST "        lv2:appliesTo <https://github.com/asb2m10/dexed> ;\n";
+	print MANIFEST "        lv2:appliesTo <https://github.com/dcoredump/dx7.lv2> ;\n";
 	print MANIFEST "        a pset:Preset ;\n";
 	print MANIFEST "        rdfs:seeAlso <".$dx{'NAME'}.".ttl> .\n";
 	close(MANIFEST);
@@ -123,7 +126,7 @@ sub write_one_lv2_patch
 	print TTL "\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
 	print TTL "\n";
 	print TTL "<>\n";
-	print TTL "lv2:appliesTo <https://github.com/asb2m10/dexed> ;\n";
+	print TTL "lv2:appliesTo <https://github.com/dcoredump/dx7.lv2> ;\n";
 	print TTL "rdfs:label  \"".$dx{'NAME'}."\" ;\n";
 	print_port("cutoff","0.0");
 	print_port("resonance","0.0");

@@ -1,0 +1,57 @@
+add https://github.com/dcoredump/dx7.lv2 0
+add http://gareus.org/oss/lv2/stepseq#s4n4 1
+connect effect_1:midiout effect_0:lv2_events_in
+connect effect_0:lv2_audio_out_1 system:playback_1
+connect effect_0:lv2_audio_out_1 system:playback_2
+param_set 1 grid_1_1 1
+param_set 1 grid_2_3 1
+
+param_set 0 middle_c 48
+param_set 0 output 0.5
+
+
+<default-preset>
+    a <http://lv2plug.in/ns/ext/presets#Preset> ;
+    <http://lv2plug.in/ns/lv2core#appliesTo> <http://guitarix.sourceforge.net/plugins/gx_colwah_#_colwah_> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Default" ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <default-preset.ttl> .
+
+
+<default-preset>
+    a <http://lv2plug.in/ns/ext/presets#Preset> ;
+    <http://lv2plug.in/ns/lv2core#appliesTo> <http://www.openavproductions.com/artyfx#filta> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Default" ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <default-preset.ttl> .
+
+<default-preset_1>
+    a <http://lv2plug.in/ns/ext/presets#Preset> ;
+    <http://lv2plug.in/ns/lv2core#appliesTo> <http://www.openavproductions.com/artyfx#kuiza> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Default" ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <default-preset.ttl> .
+
+mdap:Detune-stereo-detune
+    a pset:Preset ;
+    lv2:appliesTo mda:Detune ;
+    rdfs:seeAlso <presets.ttl> .
+
+<http://moddevices.com/plugins/mda/presets#Detune-stereo-detune>
+        a pset:Preset ;
+        lv2:appliesTo <http://moddevices.com/plugins/mda/Detune> ;
+        rdfs:label "Stereo Detune" ;
+        lv2:port [
+                lv2:symbol "detune" ;
+                pset:value 60 ;
+        ] ;
+        lv2:port [
+                lv2:symbol "mix" ;
+                pset:value 89.1 ;
+        ] ;
+        lv2:port [
+                lv2:symbol "output" ;
+                pset:value 0 ;
+        ] ;
+        lv2:port [
+                lv2:symbol "latency" ;
+                pset:value 49.35 ;
+        ] .
+

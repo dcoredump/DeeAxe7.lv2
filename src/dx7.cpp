@@ -217,7 +217,7 @@ void DX7::run (uint32_t sample_count)
          !lv2_atom_sequence_is_end(&seq->body, seq->atom.size, ev);
          ev = lv2_atom_sequence_next (ev))
     {
-       //set_params(); // pre_process: copy actual voice params
+       set_params(); // pre_process: copy actual voice params
 
        num_this_time = ev->time.frames - last_frame;
 
