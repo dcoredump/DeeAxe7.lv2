@@ -67,7 +67,7 @@ void DX7::set_params(void)
   synth_unit_->unpacked_patch_[16]=*p(p_op6_l_key_scale);
   synth_unit_->unpacked_patch_[17]=*p(p_op6_r_key_scale);
   synth_unit_->unpacked_patch_[18]=*p(p_op6_rate_scaling);
-  synth_unit_->unpacked_patch_[19]=*p(p_op6_a_mod_sens_);
+  synth_unit_->unpacked_patch_[19]=*p(p_op6_a_mod_sens);
   synth_unit_->unpacked_patch_[20]=*p(p_op6_key_velocity);
   // OP5
   synth_unit_->unpacked_patch_[21]=*p(p_op5_eg_rate_1);
@@ -89,7 +89,7 @@ void DX7::set_params(void)
   synth_unit_->unpacked_patch_[37]=*p(p_op5_l_key_scale);
   synth_unit_->unpacked_patch_[38]=*p(p_op5_r_key_scale);
   synth_unit_->unpacked_patch_[39]=*p(p_op5_rate_scaling);
-  synth_unit_->unpacked_patch_[40]=*p(p_op5_a_mod_sens_);
+  synth_unit_->unpacked_patch_[40]=*p(p_op5_a_mod_sens);
   synth_unit_->unpacked_patch_[41]=*p(p_op5_key_velocity);
   // OP4
   synth_unit_->unpacked_patch_[42]=*p(p_op4_eg_rate_1);
@@ -111,7 +111,7 @@ void DX7::set_params(void)
   synth_unit_->unpacked_patch_[58]=*p(p_op4_l_key_scale);
   synth_unit_->unpacked_patch_[59]=*p(p_op4_r_key_scale);
   synth_unit_->unpacked_patch_[60]=*p(p_op4_rate_scaling);
-  synth_unit_->unpacked_patch_[61]=*p(p_op4_a_mod_sens_);
+  synth_unit_->unpacked_patch_[61]=*p(p_op4_a_mod_sens);
   synth_unit_->unpacked_patch_[62]=*p(p_op4_key_velocity);
   // OP3
   synth_unit_->unpacked_patch_[63]=*p(p_op3_eg_rate_1);
@@ -133,7 +133,7 @@ void DX7::set_params(void)
   synth_unit_->unpacked_patch_[79]=*p(p_op3_l_key_scale);
   synth_unit_->unpacked_patch_[80]=*p(p_op3_r_key_scale);
   synth_unit_->unpacked_patch_[81]=*p(p_op3_rate_scaling);
-  synth_unit_->unpacked_patch_[82]=*p(p_op3_a_mod_sens_);
+  synth_unit_->unpacked_patch_[82]=*p(p_op3_a_mod_sens);
   synth_unit_->unpacked_patch_[83]=*p(p_op3_key_velocity);
   // OP2
   synth_unit_->unpacked_patch_[84]=*p(p_op2_eg_rate_1);
@@ -155,7 +155,7 @@ void DX7::set_params(void)
   synth_unit_->unpacked_patch_[100]=*p(p_op2_l_key_scale);
   synth_unit_->unpacked_patch_[101]=*p(p_op2_r_key_scale);
   synth_unit_->unpacked_patch_[102]=*p(p_op2_rate_scaling);
-  synth_unit_->unpacked_patch_[103]=*p(p_op2_a_mod_sens_);
+  synth_unit_->unpacked_patch_[103]=*p(p_op2_a_mod_sens);
   synth_unit_->unpacked_patch_[104]=*p(p_op2_key_velocity);
   // OP1
   synth_unit_->unpacked_patch_[105]=*p(p_op1_eg_rate_1);
@@ -177,7 +177,7 @@ void DX7::set_params(void)
   synth_unit_->unpacked_patch_[121]=*p(p_op1_l_key_scale);
   synth_unit_->unpacked_patch_[122]=*p(p_op1_r_key_scale);
   synth_unit_->unpacked_patch_[123]=*p(p_op1_rate_scaling);
-  synth_unit_->unpacked_patch_[124]=*p(p_op1_a_mod_sens_);
+  synth_unit_->unpacked_patch_[124]=*p(p_op1_a_mod_sens);
   synth_unit_->unpacked_patch_[125]=*p(p_op1_key_velocity);
   // Global for all OPs
   synth_unit_->unpacked_patch_[126]=*p(p_pitch_eg_rate_1);
@@ -197,7 +197,7 @@ void DX7::set_params(void)
   synth_unit_->unpacked_patch_[140]=*p(p_lfo_am_depth);
   synth_unit_->unpacked_patch_[141]=*p(p_lfo_key_sync);
   synth_unit_->unpacked_patch_[142]=*p(p_lfo_wave);
-  synth_unit_->unpacked_patch_[143]=*p(p_p_mode_sens_);
+  synth_unit_->unpacked_patch_[143]=*p(p_p_mode_sens);
   synth_unit_->unpacked_patch_[144]=*p(p_middle_c);
   // 10 bytes (145-154) are the name of the patch
   synth_unit_->unpacked_patch_[155]=0x3f; // operator on/off => All OPs on

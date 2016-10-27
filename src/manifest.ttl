@@ -10,3 +10,30 @@
     a lv2:Plugin ;
     doap:name "DX7";
     rdfs:seeAlso <dx7.ttl> .
+
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-dx7.html> ;
+        modgui:stylesheet <modgui/stylesheet-dx7.css> ;
+        modgui:screenshot <modgui/screenshot-dx7.png> ;
+        modgui:thumbnail <modgui/thumbnail-dx7.png> ;
+        modgui:brand "dcoredump" ;
+        modgui:label "DeeAxe-7" ;
+        modgui:model "boxy" ;
+        modgui:panel "3-knobs" ;
+        modgui:color "black" ;
+        modgui:knob "green" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "output" ;
+            lv2:name "Output" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "cutoff" ;
+            lv2:name "Cutoff" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "resonance" ;
+            lv2:name "Resonance" ;
+        ] ;
+    ] .

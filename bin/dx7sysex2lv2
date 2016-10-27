@@ -4,7 +4,8 @@
 #
 
 $LV2_BUNDLE_NAME="dx7_lv2";
-$LV2_INSTALL_PATH=$ENV{'HOME'}."/.lv2";
+#$LV2_INSTALL_PATH=$ENV{'HOME'}."/.lv2";
+$LV2_INSTALL_PATH="/tmp/x";
 
 $SYSEX=$ARGV[0];
 $BANK=$SYSEX;
@@ -102,8 +103,11 @@ sub read_one_patch
 	$dx{'LFO_AMP_MOD_DEP'}=(unpack("C",substr($patch,115,1)) & 127);
 	$tmp=unpack("C",substr($patch,116,1));
 	$dx{'LFO_PITCH_MOD_SENS'}=($tmp & 110);
+print "LFO_PITCH_MOD_SENS:".$dx{'LFO_PITCH_MOD_SENS'}."\n";
 	$dx{'LFO_WAVE'}=($tmp & 14);
+print "LFO_WAVE:".$dx{'LFO_WAVE'}."\n";
 	$dx{'LFO_KEY_SYNC'}=($tmp & 1);
+print "LFO_KEY_SYNC:".$dx{'LFO_KEY_SYNC'}."\n";
 	$dx{'TRANSPOSE'}=(unpack("C",substr($patch,117,1)) & 63);
 	$dx{'NAME'}=substr($patch,118,10);
 	$dx{'NAME'}=~ s/\s+$//; # right trim
