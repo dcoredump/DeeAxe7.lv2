@@ -61,7 +61,7 @@
         lv2:index 5 ;
         lv2:symbol "algorithm" ;
         lv2:name "ALGORITHM" ;
-        lv2:default 4 ;
+        lv2:default 5 ;
         lv2:minimum 1 ;
         lv2:maximum 32 ;
 	lv2:portProperty lv2:integer ;
@@ -409,8 +409,8 @@
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 40 ;
-        lv2:symbol "op1_l_key_scale" ;
-        lv2:name "OP1 L KEY SCALE" ;
+        lv2:symbol "op1_l_key_curve" ;
+        lv2:name "OP1 L KEY CURVE" ;
         lv2:default 0 ;
         lv2:minimum 0 ;
         lv2:maximum 3 ;
@@ -419,8 +419,8 @@
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 41 ;
-        lv2:symbol "op1_r_key_scale" ;
-        lv2:name "OP1 R KEY SCALE" ;
+        lv2:symbol "op1_r_key_curve" ;
+        lv2:name "OP1 R KEY CURVE" ;
         lv2:default 0 ;
         lv2:minimum 0 ;
         lv2:maximum 3 ;
@@ -619,7 +619,7 @@
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 61 ;
-        lv2:symbol "op2_l_key_scale" ;
+        lv2:symbol "op2_l_key_curve" ;
         lv2:name "OP2 L KEY SCALE" ;
         lv2:default 0 ;
         lv2:minimum 0 ;
@@ -629,7 +629,7 @@
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 62 ;
-        lv2:symbol "op2_r_key_scale" ;
+        lv2:symbol "op2_r_key_curve" ;
         lv2:name "OP2 R KEY SCALE" ;
         lv2:default 0 ;
         lv2:minimum 0 ;
@@ -829,7 +829,7 @@
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 82 ;
-        lv2:symbol "op3_l_key_scale" ;
+        lv2:symbol "op3_l_key_curve" ;
         lv2:name "OP3 L KEY SCALE" ;
         lv2:default 0 ;
         lv2:minimum 0 ;
@@ -839,7 +839,7 @@
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 83 ;
-        lv2:symbol "op3_r_key_scale" ;
+        lv2:symbol "op3_r_key_curve" ;
         lv2:name "OP3 R KEY SCALE" ;
         lv2:default 0 ;
         lv2:minimum 0 ;
@@ -1039,7 +1039,7 @@
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 103 ;
-        lv2:symbol "op4_l_key_scale" ;
+        lv2:symbol "op4_l_key_curve" ;
         lv2:name "OP4 L KEY SCALE" ;
         lv2:default 0 ;
         lv2:minimum 0 ;
@@ -1049,7 +1049,7 @@
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 104 ;
-        lv2:symbol "op4_r_key_scale" ;
+        lv2:symbol "op4_r_key_curve" ;
         lv2:name "OP4 R KEY SCALE" ;
         lv2:default 0 ;
         lv2:minimum 0 ;
@@ -1249,7 +1249,7 @@
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 124 ;
-        lv2:symbol "op5_l_key_scale" ;
+        lv2:symbol "op5_l_key_curve" ;
         lv2:name "OP5 L KEY SCALE" ;
         lv2:default 0 ;
         lv2:minimum 0 ;
@@ -1259,7 +1259,7 @@
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 125 ;
-        lv2:symbol "op5_r_key_scale" ;
+        lv2:symbol "op5_r_key_curve" ;
         lv2:name "OP5 R KEY SCALE" ;
         lv2:default 0 ;
         lv2:minimum 0 ;
@@ -1459,7 +1459,7 @@
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 145 ;
-        lv2:symbol "op6_l_key_scale" ;
+        lv2:symbol "op6_l_key_curve" ;
         lv2:name "OP6 L KEY SCALE" ;
         lv2:default 0 ;
         lv2:minimum 0 ;
@@ -1469,7 +1469,7 @@
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 146 ;
-        lv2:symbol "op6_r_key_scale" ;
+        lv2:symbol "op6_r_key_curve" ;
         lv2:name "OP6 R KEY SCALE" ;
         lv2:default 0 ;
         lv2:minimum 0 ;

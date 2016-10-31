@@ -4,7 +4,8 @@
 #
 
 $LV2_BUNDLE_NAME="dx7_lv2";
-$LV2_INSTALL_PATH=$ENV{'HOME'}."/mod";
+#$LV2_INSTALL_PATH=$ENV{'HOME'}."/mod";
+$LV2_INSTALL_PATH="/tmp/mod";
 
 $SYSEX=$ARGV[0];
 $BANK=$SYSEX;
@@ -61,7 +62,7 @@ sub read_one_patch
 		$dx{'OP_KBD_RHT_CUR'}[$op]=(($tmp & 12) >> 2);
 		$tmp=(unpack("C",substr($patch,12+($op*17),1)) & 127);
 		$dx{'OP_KBD_RATE_SCALE'}[$op]=($tmp & 7);
-		$dx{'OP_OSC_DET'}[$op]=(($tmp & 120) >> 3);
+		$dx{'OP_OSC_DET'}[$op]=(($tmp & 120) >> 3)-7;
 		$tmp=(unpack("C",substr($patch,13+($op*17),1)) & 127);
 		$dx{'OP_AMP_MOD_SENS'}[$op]=($tmp & 7);
 		$dx{'OP_KEY_VEL_SENS'}[$op]=(($tmp & 28) >> 2);
@@ -80,7 +81,7 @@ sub read_one_patch
 	$dx{'PITCH_EG_LVL2'}=(unpack("C",substr($patch,107,1)) & 127);
 	$dx{'PITCH_EG_LVL3'}=(unpack("C",substr($patch,108,1)) & 127);
 	$dx{'PITCH_EG_LVL4'}=(unpack("C",substr($patch,109,1)) & 127);
-	$dx{'ALG'}=(unpack("C",substr($patch,110,1)) & 31);
+	$dx{'ALG'}=(unpack("C",substr($patch,110,1)) & 31)+1;
 	$tmp=unpack("C",substr($patch,111,1));
 	$dx{'FEEDBACK'}=($tmp & 7);
 	$dx{'OSC_KEY_SYNC'}=(($tmp & 8) >> 3);
@@ -154,8 +155,8 @@ sub write_one_lv2_patch
 		print_port("op".($i+1)."_break_point",$dx{'OP_KBD_BRK_PT'}[5-$i],0);
 		print_port("op".($i+1)."_l_scale_depth",$dx{'OP_KBD_LFT_DEP'}[5-$i],0);
 		print_port("op".($i+1)."_r_scale_depth",$dx{'OP_KBD_RHT_DEP'}[5-$i],0);
-		print_port("op".($i+1)."_l_key_scale",$dx{'OP_KBD_LFT_CUR'}[5-$i],0);
-		print_port("op".($i+1)."_r_key_scale",$dx{'OP_KBD_RHT_CUR'}[5-$i],0);
+		print_port("op".($i+1)."_l_key_curve",$dx{'OP_KBD_LFT_CUR'}[5-$i],0);
+		print_port("op".($i+1)."_r_key_curve",$dx{'OP_KBD_RHT_CUR'}[5-$i],0);
 		print_port("op".($i+1)."_rate_scaling",$dx{'OP_KBD_RATE_SCALE'}[5-$i],0);
 		print_port("op".($i+1)."_a_mod_sens",$dx{'OP_AMP_MOD_SENS'}[5-$i],0);
 		print_port("op".($i+1)."_key_velocity",$dx{'OP_KEY_VEL_SENS'}[5-$i],1);

@@ -73,7 +73,7 @@ sub read_one_patch
                 $dx{'OP_KBD_RHT_CUR'}[$op]=(($tmp & 12) >> 2);
                 $tmp=(unpack("C",substr($patch,12+($op*17),1)) & 127);
                 $dx{'OP_KBD_RATE_SCALE'}[$op]=($tmp & 7);
-                $dx{'OP_OSC_DET'}[$op]=(($tmp & 120) >> 3);
+                $dx{'OP_OSC_DET'}[$op]=(($tmp & 120) >> 3)-7;
                 $tmp=(unpack("C",substr($patch,13+($op*17),1)) & 127);
                 $dx{'OP_AMP_MOD_SENS'}[$op]=($tmp & 7);
                 $dx{'OP_KEY_VEL_SENS'}[$op]=(($tmp & 28) >> 2);
@@ -83,7 +83,6 @@ sub read_one_patch
                 $dx{'OP_OSC_FRQ_CRS'}[$op]=(($tmp & 62) >> 1);
                 $dx{'OP_OSC_FRQ_FIN'}[$op]=(unpack("C",substr($patch,15+($op*17),1)) & 127);
         }
-
         $dx{'PITCH_EG_RATE1'}=(unpack("C",substr($patch,102,1)) & 127);
         $dx{'PITCH_EG_RATE2'}=(unpack("C",substr($patch,103,1)) & 127);
         $dx{'PITCH_EG_RATE3'}=(unpack("C",substr($patch,104,1)) & 127);
@@ -92,7 +91,7 @@ sub read_one_patch
         $dx{'PITCH_EG_LVL2'}=(unpack("C",substr($patch,107,1)) & 127);
         $dx{'PITCH_EG_LVL3'}=(unpack("C",substr($patch,108,1)) & 127);
         $dx{'PITCH_EG_LVL4'}=(unpack("C",substr($patch,109,1)) & 127);
-        $dx{'ALG'}=(unpack("C",substr($patch,110,1)) & 31);
+        $dx{'ALG'}=(unpack("C",substr($patch,110,1)) & 31)+1;
         $tmp=unpack("C",substr($patch,111,1));
         $dx{'FEEDBACK'}=($tmp & 7);
         $dx{'OSC_KEY_SYNC'}=(($tmp & 8) >> 3);
@@ -114,6 +113,7 @@ sub read_one_patch
         $dx{'FILENAME'}=~tr/-/_/;
 }
 
+
 sub write_one_lv2_patch
 {
 	# Create patch dir
@@ -121,32 +121,33 @@ sub write_one_lv2_patch
 
 	# Write manifest.ttl
 	open(MANIFEST,">".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."-".$BANK."_".$dx{'FILENAME'}.".lv2/manifest.ttl")||die("Cannot open \'".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."-".$BANK."_".$dx{'FILENAME'}.".lv2/manifest.ttl\': $!\n");
-        print MANIFEST "\@prefix atom: <http://lv2plug.in/ns/ext/atom#> .\n";
+        #print MANIFEST "\@prefix atom: <http://lv2plug.in/ns/ext/atom#> .\n";
         print MANIFEST "\@prefix lv2: <http://lv2plug.in/ns/lv2core#> .\n";
         print MANIFEST "\@prefix pset: <http://lv2plug.in/ns/ext/presets#> .\n";
-        print MANIFEST "\@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n";
+        #print MANIFEST "\@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n";
         print MANIFEST "\@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
-        print MANIFEST "\@prefix state: <http://lv2plug.in/ns/ext/state#> .\n";
-        print MANIFEST "\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
+        #print MANIFEST "\@prefix state: <http://lv2plug.in/ns/ext/state#> .\n";
+        #print MANIFEST "\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
         print MANIFEST "\n";
         print MANIFEST "<".$BANK."_".$dx{'FILENAME'}.".ttl>\n";
-        print MANIFEST "        lv2:appliesTo <https://github.com/dcoredump/dx7.lv2> ;\n";
         print MANIFEST "        a pset:Preset ;\n";
+        print MANIFEST "        lv2:appliesTo <https://github.com/dcoredump/dx7.lv2> ;\n";
         print MANIFEST "        rdfs:seeAlso <".$BANK."_".$dx{'FILENAME'}.".ttl> .\n";
         close(MANIFEST);
 
 
 	#open(TTL,">".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."/".$BANK."/".$dx{'FILENAME'}.".ttl")||die("Cannot open \'".$LV2_BUNDLE_NAME."-/".$BANK."/".$dx{'FILENAME'}.".ttl\': $!\n");
 	open(TTL,">".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."-".$BANK."_".$dx{'FILENAME'}.".lv2/".$BANK."_".$dx{'FILENAME'}.".ttl")||die("Cannot open \'".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."-".$BANK."_".$dx{'FILENAME'}.".lv2/".$BANK."_".$dx{'FILENAME'}.".ttl\': $!\n");
-	print TTL "\@prefix atom: <http://lv2plug.in/ns/ext/atom#> .\n";
+	#print TTL "\@prefix atom: <http://lv2plug.in/ns/ext/atom#> .\n";
 	print TTL "\@prefix lv2: <http://lv2plug.in/ns/lv2core#> .\n";
 	print TTL "\@prefix pset: <http://lv2plug.in/ns/ext/presets#> .\n";
-	print TTL "\@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n";
+	#print TTL "\@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n";
 	print TTL "\@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
-	print TTL "\@prefix state: <http://lv2plug.in/ns/ext/state#> .\n";
-	print TTL "\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
+	#print TTL "\@prefix state: <http://lv2plug.in/ns/ext/state#> .\n";
+	#print TTL "\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
 	print TTL "\n";
 	print TTL "<>\n";
+	print TTL "a pset:Preset ;\n";
 	print TTL "lv2:appliesTo <https://github.com/dcoredump/dx7.lv2> ;\n";
 	print TTL "rdfs:label  \"".$dx{'NAME'}."\" ;\n";
 	print_port("cutoff","0.0");

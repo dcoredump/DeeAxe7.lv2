@@ -30,11 +30,6 @@ struct ActiveNote {
 
 class SynthUnit {
  public:
-  // The following were private:
-  char unpacked_patch_[156];
-  // The original DX7 had one single LFO. Later units had an LFO per note.
-  Lfo lfo_;
-
 
   static void Init(double sample_rate);
 
@@ -42,6 +37,10 @@ class SynthUnit {
 
   void GetSamples(int n_samples, int16_t *buffer);
  private:
+  char unpacked_patch_[156];
+  // The original DX7 had one single LFO. Later units had an LFO per note.
+  Lfo lfo_;
+
   void TransferInput();
 
   void ConsumeInput(int n_input_bytes);
