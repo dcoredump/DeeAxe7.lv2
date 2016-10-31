@@ -25,6 +25,7 @@ using namespace std;
 #include "exp2.h"
 #include "controllers.h"
 #include "dx7note.h"
+#include <stdio.h>
 
 int32_t midinote_to_logfreq(int midinote) {
   const int base = 50857777;  // (1 << 24) * (log(440) / log(2) - 69/12)
@@ -176,6 +177,7 @@ void Dx7Note::init(const char patch[156], int midinote, int velocity) {
   fb_shift_ = feedback != 0 ? 8 - feedback : 16;
   pitchmoddepth_ = (patch[139] * 165) >> 6;
   pitchmodsens_ = pitchmodsenstab[patch[143] & 7];
+printf("middle_c: %d\n",patch[144]);
 }
 
 void Dx7Note::compute(int32_t *buf, int32_t lfo_val, int32_t lfo_delay,

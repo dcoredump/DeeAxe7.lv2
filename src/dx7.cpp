@@ -43,157 +43,157 @@ void DX7::set_params(void)
   TRACE("Hi");
 
   // OP6
-  synth_unit_->onParam(0,*p(p_op6_eg_rate_1));
-  synth_unit_->onParam(1,*p(p_op6_eg_rate_2));
-  synth_unit_->onParam(2,*p(p_op6_eg_rate_3));
-  synth_unit_->onParam(3,*p(p_op6_eg_rate_4));
-  synth_unit_->onParam(4,*p(p_op6_eg_level_1));
-  synth_unit_->onParam(5,*p(p_op6_eg_level_2));
-  synth_unit_->onParam(6,*p(p_op6_eg_level_3));
-  synth_unit_->onParam(7,*p(p_op6_eg_level_4));
-  synth_unit_->onParam(8,*p(p_op6_output_level));
-  synth_unit_->onParam(9,*p(p_op6_mode));
-  synth_unit_->onParam(10,*p(p_op6_f_coarse));
-  synth_unit_->onParam(11,*p(p_op6_f_fine));
-  synth_unit_->onParam(12,*p(p_op6_osc_detune)+7);
-  synth_unit_->onParam(13,*p(p_op6_break_point));
-  synth_unit_->onParam(14,*p(p_op6_l_scale_depth));
-  synth_unit_->onParam(15,*p(p_op6_r_scale_depth));
-  synth_unit_->onParam(16,*p(p_op6_l_key_curve));
-  synth_unit_->onParam(17,*p(p_op6_r_key_curve));
-  synth_unit_->onParam(18,*p(p_op6_rate_scaling));
-  synth_unit_->onParam(19,*p(p_op6_a_mod_sens));
-  synth_unit_->onParam(20,*p(p_op6_key_velocity));
+  synth_unit_->onParam(0,static_cast<char>(*p(p_op6_eg_rate_1)));
+  synth_unit_->onParam(1,static_cast<char>(*p(p_op6_eg_rate_2)));
+  synth_unit_->onParam(2,static_cast<char>(*p(p_op6_eg_rate_3)));
+  synth_unit_->onParam(3,static_cast<char>(*p(p_op6_eg_rate_4)));
+  synth_unit_->onParam(4,static_cast<char>(*p(p_op6_eg_level_1)));
+  synth_unit_->onParam(5,static_cast<char>(*p(p_op6_eg_level_2)));
+  synth_unit_->onParam(6,static_cast<char>(*p(p_op6_eg_level_3)));
+  synth_unit_->onParam(7,static_cast<char>(*p(p_op6_eg_level_4)));
+  synth_unit_->onParam(8,static_cast<char>(*p(p_op6_output_level)));
+  synth_unit_->onParam(9,static_cast<char>(*p(p_op6_mode)));
+  synth_unit_->onParam(10,static_cast<char>(*p(p_op6_f_coarse)));
+  synth_unit_->onParam(11,static_cast<char>(*p(p_op6_f_fine)));
+  synth_unit_->onParam(12,static_cast<char>(*p(p_op6_osc_detune))+7);
+  synth_unit_->onParam(13,static_cast<char>(*p(p_op6_break_point)));
+  synth_unit_->onParam(14,static_cast<char>(*p(p_op6_l_scale_depth)));
+  synth_unit_->onParam(15,static_cast<char>(*p(p_op6_r_scale_depth)));
+  synth_unit_->onParam(16,static_cast<char>(*p(p_op6_l_key_curve)));
+  synth_unit_->onParam(17,static_cast<char>(*p(p_op6_r_key_curve)));
+  synth_unit_->onParam(18,static_cast<char>(*p(p_op6_rate_scaling)));
+  synth_unit_->onParam(19,static_cast<char>(*p(p_op6_a_mod_sens)));
+  synth_unit_->onParam(20,static_cast<char>(*p(p_op6_key_velocity)));
   // OP5
-  synth_unit_->onParam(21,*p(p_op5_eg_rate_1));
-  synth_unit_->onParam(22,*p(p_op5_eg_rate_2));
-  synth_unit_->onParam(23,*p(p_op5_eg_rate_3));
-  synth_unit_->onParam(24,*p(p_op5_eg_rate_4));
-  synth_unit_->onParam(25,*p(p_op5_eg_level_1));
-  synth_unit_->onParam(26,*p(p_op5_eg_level_2));
-  synth_unit_->onParam(27,*p(p_op5_eg_level_3));
-  synth_unit_->onParam(28,*p(p_op5_eg_level_4));
-  synth_unit_->onParam(29,*p(p_op5_output_level));
-  synth_unit_->onParam(30,*p(p_op5_mode));
-  synth_unit_->onParam(31,*p(p_op5_f_coarse));
-  synth_unit_->onParam(32,*p(p_op5_f_fine));
-  synth_unit_->onParam(33,*p(p_op5_osc_detune)+7);
-  synth_unit_->onParam(34,*p(p_op5_break_point));
-  synth_unit_->onParam(35,*p(p_op5_l_scale_depth));
-  synth_unit_->onParam(36,*p(p_op5_r_scale_depth));
-  synth_unit_->onParam(37,*p(p_op5_l_key_curve));
-  synth_unit_->onParam(38,*p(p_op5_r_key_curve));
-  synth_unit_->onParam(39,*p(p_op5_rate_scaling));
-  synth_unit_->onParam(40,*p(p_op5_a_mod_sens));
-  synth_unit_->onParam(41,*p(p_op5_key_velocity));
+  synth_unit_->onParam(0,static_cast<char>(*p(p_op5_eg_rate_1)));
+  synth_unit_->onParam(1,static_cast<char>(*p(p_op5_eg_rate_2)));
+  synth_unit_->onParam(2,static_cast<char>(*p(p_op5_eg_rate_3)));
+  synth_unit_->onParam(3,static_cast<char>(*p(p_op5_eg_rate_4)));
+  synth_unit_->onParam(4,static_cast<char>(*p(p_op5_eg_level_1)));
+  synth_unit_->onParam(5,static_cast<char>(*p(p_op5_eg_level_2)));
+  synth_unit_->onParam(6,static_cast<char>(*p(p_op5_eg_level_3)));
+  synth_unit_->onParam(7,static_cast<char>(*p(p_op5_eg_level_4)));
+  synth_unit_->onParam(8,static_cast<char>(*p(p_op5_output_level)));
+  synth_unit_->onParam(9,static_cast<char>(*p(p_op5_mode)));
+  synth_unit_->onParam(10,static_cast<char>(*p(p_op5_f_coarse)));
+  synth_unit_->onParam(11,static_cast<char>(*p(p_op5_f_fine)));
+  synth_unit_->onParam(12,static_cast<char>(*p(p_op5_osc_detune))+7);
+  synth_unit_->onParam(13,static_cast<char>(*p(p_op5_break_point)));
+  synth_unit_->onParam(14,static_cast<char>(*p(p_op5_l_scale_depth)));
+  synth_unit_->onParam(15,static_cast<char>(*p(p_op5_r_scale_depth)));
+  synth_unit_->onParam(16,static_cast<char>(*p(p_op5_l_key_curve)));
+  synth_unit_->onParam(17,static_cast<char>(*p(p_op5_r_key_curve)));
+  synth_unit_->onParam(18,static_cast<char>(*p(p_op5_rate_scaling)));
+  synth_unit_->onParam(19,static_cast<char>(*p(p_op5_a_mod_sens)));
+  synth_unit_->onParam(20,static_cast<char>(*p(p_op5_key_velocity)));
   // OP4
-  synth_unit_->onParam(42,*p(p_op4_eg_rate_1));
-  synth_unit_->onParam(43,*p(p_op4_eg_rate_2));
-  synth_unit_->onParam(44,*p(p_op4_eg_rate_3));
-  synth_unit_->onParam(45,*p(p_op4_eg_rate_4));
-  synth_unit_->onParam(46,*p(p_op4_eg_level_1));
-  synth_unit_->onParam(47,*p(p_op4_eg_level_2));
-  synth_unit_->onParam(48,*p(p_op4_eg_level_3));
-  synth_unit_->onParam(49,*p(p_op4_eg_level_4));
-  synth_unit_->onParam(50,*p(p_op4_output_level));
-  synth_unit_->onParam(51,*p(p_op4_mode));
-  synth_unit_->onParam(52,*p(p_op4_f_coarse));
-  synth_unit_->onParam(53,*p(p_op4_f_fine));
-  synth_unit_->onParam(54,*p(p_op4_osc_detune)+7);
-  synth_unit_->onParam(55,*p(p_op4_break_point));
-  synth_unit_->onParam(56,*p(p_op4_l_scale_depth));
-  synth_unit_->onParam(57,*p(p_op4_r_scale_depth));
-  synth_unit_->onParam(58,*p(p_op4_l_key_curve));
-  synth_unit_->onParam(59,*p(p_op4_r_key_curve));
-  synth_unit_->onParam(60,*p(p_op4_rate_scaling));
-  synth_unit_->onParam(61,*p(p_op4_a_mod_sens));
-  synth_unit_->onParam(62,*p(p_op4_key_velocity));
+  synth_unit_->onParam(42,static_cast<char>(*p(p_op4_eg_rate_1)));
+  synth_unit_->onParam(43,static_cast<char>(*p(p_op4_eg_rate_2)));
+  synth_unit_->onParam(44,static_cast<char>(*p(p_op4_eg_rate_3)));
+  synth_unit_->onParam(45,static_cast<char>(*p(p_op4_eg_rate_4)));
+  synth_unit_->onParam(46,static_cast<char>(*p(p_op4_eg_level_1)));
+  synth_unit_->onParam(47,static_cast<char>(*p(p_op4_eg_level_2)));
+  synth_unit_->onParam(48,static_cast<char>(*p(p_op4_eg_level_3)));
+  synth_unit_->onParam(49,static_cast<char>(*p(p_op4_eg_level_4)));
+  synth_unit_->onParam(50,static_cast<char>(*p(p_op4_output_level)));
+  synth_unit_->onParam(51,static_cast<char>(*p(p_op4_mode)));
+  synth_unit_->onParam(52,static_cast<char>(*p(p_op4_f_coarse)));
+  synth_unit_->onParam(53,static_cast<char>(*p(p_op4_f_fine)));
+  synth_unit_->onParam(54,static_cast<char>(*p(p_op4_osc_detune))+7);
+  synth_unit_->onParam(55,static_cast<char>(*p(p_op4_break_point)));
+  synth_unit_->onParam(56,static_cast<char>(*p(p_op4_l_scale_depth)));
+  synth_unit_->onParam(57,static_cast<char>(*p(p_op4_r_scale_depth)));
+  synth_unit_->onParam(58,static_cast<char>(*p(p_op4_l_key_curve)));
+  synth_unit_->onParam(59,static_cast<char>(*p(p_op4_r_key_curve)));
+  synth_unit_->onParam(60,static_cast<char>(*p(p_op4_rate_scaling)));
+  synth_unit_->onParam(61,static_cast<char>(*p(p_op4_a_mod_sens)));
+  synth_unit_->onParam(62,static_cast<char>(*p(p_op4_key_velocity)));
   // OP3
-  synth_unit_->onParam(63,*p(p_op3_eg_rate_1));
-  synth_unit_->onParam(64,*p(p_op3_eg_rate_2));
-  synth_unit_->onParam(65,*p(p_op3_eg_rate_3));
-  synth_unit_->onParam(66,*p(p_op3_eg_rate_4));
-  synth_unit_->onParam(67,*p(p_op3_eg_level_1));
-  synth_unit_->onParam(68,*p(p_op3_eg_level_2));
-  synth_unit_->onParam(69,*p(p_op3_eg_level_3));
-  synth_unit_->onParam(70,*p(p_op3_eg_level_4));
-  synth_unit_->onParam(71,*p(p_op3_output_level));
-  synth_unit_->onParam(72,*p(p_op3_mode));
-  synth_unit_->onParam(73,*p(p_op3_f_coarse));
-  synth_unit_->onParam(74,*p(p_op3_f_fine));
-  synth_unit_->onParam(75,*p(p_op3_osc_detune)+7);
-  synth_unit_->onParam(76,*p(p_op3_break_point));
-  synth_unit_->onParam(77,*p(p_op3_l_scale_depth));
-  synth_unit_->onParam(78,*p(p_op3_r_scale_depth));
-  synth_unit_->onParam(79,*p(p_op3_l_key_curve));
-  synth_unit_->onParam(80,*p(p_op3_r_key_curve));
-  synth_unit_->onParam(81,*p(p_op3_rate_scaling));
-  synth_unit_->onParam(82,*p(p_op3_a_mod_sens));
-  synth_unit_->onParam(83,*p(p_op3_key_velocity));
+  synth_unit_->onParam(63,static_cast<char>(*p(p_op3_eg_rate_1)));
+  synth_unit_->onParam(64,static_cast<char>(*p(p_op3_eg_rate_2)));
+  synth_unit_->onParam(65,static_cast<char>(*p(p_op3_eg_rate_3)));
+  synth_unit_->onParam(66,static_cast<char>(*p(p_op3_eg_rate_4)));
+  synth_unit_->onParam(67,static_cast<char>(*p(p_op3_eg_level_1)));
+  synth_unit_->onParam(68,static_cast<char>(*p(p_op3_eg_level_2)));
+  synth_unit_->onParam(69,static_cast<char>(*p(p_op3_eg_level_3)));
+  synth_unit_->onParam(70,static_cast<char>(*p(p_op3_eg_level_4)));
+  synth_unit_->onParam(71,static_cast<char>(*p(p_op3_output_level)));
+  synth_unit_->onParam(72,static_cast<char>(*p(p_op3_mode)));
+  synth_unit_->onParam(73,static_cast<char>(*p(p_op3_f_coarse)));
+  synth_unit_->onParam(74,static_cast<char>(*p(p_op3_f_fine)));
+  synth_unit_->onParam(75,static_cast<char>(*p(p_op3_osc_detune))+7);
+  synth_unit_->onParam(76,static_cast<char>(*p(p_op3_break_point)));
+  synth_unit_->onParam(77,static_cast<char>(*p(p_op3_l_scale_depth)));
+  synth_unit_->onParam(78,static_cast<char>(*p(p_op3_r_scale_depth)));
+  synth_unit_->onParam(79,static_cast<char>(*p(p_op3_l_key_curve)));
+  synth_unit_->onParam(80,static_cast<char>(*p(p_op3_r_key_curve)));
+  synth_unit_->onParam(81,static_cast<char>(*p(p_op3_rate_scaling)));
+  synth_unit_->onParam(82,static_cast<char>(*p(p_op3_a_mod_sens)));
+  synth_unit_->onParam(83,static_cast<char>(*p(p_op3_key_velocity)));
   // OP2
-  synth_unit_->onParam(84,*p(p_op2_eg_rate_1));
-  synth_unit_->onParam(85,*p(p_op2_eg_rate_2));
-  synth_unit_->onParam(86,*p(p_op2_eg_rate_3));
-  synth_unit_->onParam(87,*p(p_op2_eg_rate_4));
-  synth_unit_->onParam(88,*p(p_op2_eg_level_1));
-  synth_unit_->onParam(89,*p(p_op2_eg_level_2));
-  synth_unit_->onParam(90,*p(p_op2_eg_level_3));
-  synth_unit_->onParam(91,*p(p_op2_eg_level_4));
-  synth_unit_->onParam(92,*p(p_op2_output_level));
-  synth_unit_->onParam(93,*p(p_op2_mode));
-  synth_unit_->onParam(94,*p(p_op2_f_coarse));
-  synth_unit_->onParam(95,*p(p_op2_f_fine));
-  synth_unit_->onParam(96,*p(p_op2_osc_detune)+7);
-  synth_unit_->onParam(97,*p(p_op2_break_point));
-  synth_unit_->onParam(98,*p(p_op2_l_scale_depth));
-  synth_unit_->onParam(99,*p(p_op2_r_scale_depth));
-  synth_unit_->onParam(100,*p(p_op2_l_key_curve));
-  synth_unit_->onParam(101,*p(p_op2_r_key_curve));
-  synth_unit_->onParam(102,*p(p_op2_rate_scaling));
-  synth_unit_->onParam(103,*p(p_op2_a_mod_sens));
-  synth_unit_->onParam(104,*p(p_op2_key_velocity));
+  synth_unit_->onParam(84,static_cast<char>(*p(p_op2_eg_rate_1)));
+  synth_unit_->onParam(85,static_cast<char>(*p(p_op2_eg_rate_2)));
+  synth_unit_->onParam(86,static_cast<char>(*p(p_op2_eg_rate_3)));
+  synth_unit_->onParam(87,static_cast<char>(*p(p_op2_eg_rate_4)));
+  synth_unit_->onParam(88,static_cast<char>(*p(p_op2_eg_level_1)));
+  synth_unit_->onParam(89,static_cast<char>(*p(p_op2_eg_level_2)));
+  synth_unit_->onParam(90,static_cast<char>(*p(p_op2_eg_level_3)));
+  synth_unit_->onParam(91,static_cast<char>(*p(p_op2_eg_level_4)));
+  synth_unit_->onParam(92,static_cast<char>(*p(p_op2_output_level)));
+  synth_unit_->onParam(93,static_cast<char>(*p(p_op2_mode)));
+  synth_unit_->onParam(94,static_cast<char>(*p(p_op2_f_coarse)));
+  synth_unit_->onParam(95,static_cast<char>(*p(p_op2_f_fine)));
+  synth_unit_->onParam(96,static_cast<char>(*p(p_op2_osc_detune))+7);
+  synth_unit_->onParam(97,static_cast<char>(*p(p_op2_break_point)));
+  synth_unit_->onParam(98,static_cast<char>(*p(p_op2_l_scale_depth)));
+  synth_unit_->onParam(99,static_cast<char>(*p(p_op2_r_scale_depth)));
+  synth_unit_->onParam(100,static_cast<char>(*p(p_op2_l_key_curve)));
+  synth_unit_->onParam(101,static_cast<char>(*p(p_op2_r_key_curve)));
+  synth_unit_->onParam(102,static_cast<char>(*p(p_op2_rate_scaling)));
+  synth_unit_->onParam(103,static_cast<char>(*p(p_op2_a_mod_sens)));
+  synth_unit_->onParam(104,static_cast<char>(*p(p_op2_key_velocity)));
   // OP1
-  synth_unit_->onParam(105,*p(p_op1_eg_rate_1));
-  synth_unit_->onParam(106,*p(p_op1_eg_rate_2));
-  synth_unit_->onParam(107,*p(p_op1_eg_rate_3));
-  synth_unit_->onParam(108,*p(p_op1_eg_rate_4));
-  synth_unit_->onParam(109,*p(p_op1_eg_level_1));
-  synth_unit_->onParam(110,*p(p_op1_eg_level_2));
-  synth_unit_->onParam(111,*p(p_op1_eg_level_3));
-  synth_unit_->onParam(112,*p(p_op1_eg_level_4));
-  synth_unit_->onParam(113,*p(p_op1_output_level));
-  synth_unit_->onParam(114,*p(p_op1_mode));
-  synth_unit_->onParam(115,*p(p_op1_f_coarse));
-  synth_unit_->onParam(116,*p(p_op1_f_fine));
-  synth_unit_->onParam(117,*p(p_op1_osc_detune)+7);
-  synth_unit_->onParam(118,*p(p_op1_break_point));
-  synth_unit_->onParam(119,*p(p_op1_l_scale_depth));
-  synth_unit_->onParam(120,*p(p_op1_r_scale_depth));
-  synth_unit_->onParam(121,*p(p_op1_l_key_curve));
-  synth_unit_->onParam(122,*p(p_op1_r_key_curve));
-  synth_unit_->onParam(123,*p(p_op1_rate_scaling));
-  synth_unit_->onParam(124,*p(p_op1_a_mod_sens));
-  synth_unit_->onParam(125,*p(p_op1_key_velocity));
+  synth_unit_->onParam(105,static_cast<char>(*p(p_op1_eg_rate_1)));
+  synth_unit_->onParam(106,static_cast<char>(*p(p_op1_eg_rate_2)));
+  synth_unit_->onParam(107,static_cast<char>(*p(p_op1_eg_rate_3)));
+  synth_unit_->onParam(108,static_cast<char>(*p(p_op1_eg_rate_4)));
+  synth_unit_->onParam(109,static_cast<char>(*p(p_op1_eg_level_1)));
+  synth_unit_->onParam(110,static_cast<char>(*p(p_op1_eg_level_2)));
+  synth_unit_->onParam(111,static_cast<char>(*p(p_op1_eg_level_3)));
+  synth_unit_->onParam(112,static_cast<char>(*p(p_op1_eg_level_4)));
+  synth_unit_->onParam(113,static_cast<char>(*p(p_op1_output_level)));
+  synth_unit_->onParam(114,static_cast<char>(*p(p_op1_mode)));
+  synth_unit_->onParam(115,static_cast<char>(*p(p_op1_f_coarse)));
+  synth_unit_->onParam(116,static_cast<char>(*p(p_op1_f_fine)));
+  synth_unit_->onParam(117,static_cast<char>(*p(p_op1_osc_detune))+7);
+  synth_unit_->onParam(118,static_cast<char>(*p(p_op1_break_point)));
+  synth_unit_->onParam(119,static_cast<char>(*p(p_op1_l_scale_depth)));
+  synth_unit_->onParam(120,static_cast<char>(*p(p_op1_r_scale_depth)));
+  synth_unit_->onParam(121,static_cast<char>(*p(p_op1_l_key_curve)));
+  synth_unit_->onParam(122,static_cast<char>(*p(p_op1_r_key_curve)));
+  synth_unit_->onParam(123,static_cast<char>(*p(p_op1_rate_scaling)));
+  synth_unit_->onParam(124,static_cast<char>(*p(p_op1_a_mod_sens)));
+  synth_unit_->onParam(125,static_cast<char>(*p(p_op1_key_velocity)));
   // Global for all OPs
-  synth_unit_->onParam(126,*p(p_pitch_eg_rate_1));
-  synth_unit_->onParam(127,*p(p_pitch_eg_rate_2));
-  synth_unit_->onParam(128,*p(p_pitch_eg_rate_3));
-  synth_unit_->onParam(129,*p(p_pitch_eg_rate_4));
-  synth_unit_->onParam(130,*p(p_pitch_eg_level_1));
-  synth_unit_->onParam(131,*p(p_pitch_eg_level_2));
-  synth_unit_->onParam(132,*p(p_pitch_eg_level_3));
-  synth_unit_->onParam(133,*p(p_pitch_eg_level_4));
-  synth_unit_->onParam(134,*p(p_algorithm)-1);
-  synth_unit_->onParam(135,*p(p_feedback));
-  synth_unit_->onParam(136,*p(p_osc_key_sync));
-  synth_unit_->onParam(137,*p(p_lfo_speed));
-  synth_unit_->onParam(138,*p(p_lfo_delay));
-  synth_unit_->onParam(139,*p(p_lfo_pm_depth));
-  synth_unit_->onParam(140,*p(p_lfo_am_depth));
-  synth_unit_->onParam(141,*p(p_lfo_key_sync));
-  synth_unit_->onParam(142,*p(p_lfo_wave));
-  synth_unit_->onParam(143,*p(p_p_mode_sens));
-  synth_unit_->onParam(144,*p(p_middle_c));
+  synth_unit_->onParam(126,static_cast<char>(*p(p_pitch_eg_rate_1)));
+  synth_unit_->onParam(127,static_cast<char>(*p(p_pitch_eg_rate_2)));
+  synth_unit_->onParam(128,static_cast<char>(*p(p_pitch_eg_rate_3)));
+  synth_unit_->onParam(129,static_cast<char>(*p(p_pitch_eg_rate_4)));
+  synth_unit_->onParam(130,static_cast<char>(*p(p_pitch_eg_level_1)));
+  synth_unit_->onParam(131,static_cast<char>(*p(p_pitch_eg_level_2)));
+  synth_unit_->onParam(132,static_cast<char>(*p(p_pitch_eg_level_3)));
+  synth_unit_->onParam(133,static_cast<char>(*p(p_pitch_eg_level_4)));
+  synth_unit_->onParam(134,static_cast<char>(*p(p_algorithm))-1);
+  synth_unit_->onParam(135,static_cast<char>(*p(p_feedback)));
+  synth_unit_->onParam(136,static_cast<char>(*p(p_osc_key_sync)));
+  synth_unit_->onParam(137,static_cast<char>(*p(p_lfo_speed)));
+  synth_unit_->onParam(138,static_cast<char>(*p(p_lfo_delay)));
+  synth_unit_->onParam(139,static_cast<char>(*p(p_lfo_pm_depth)));
+  synth_unit_->onParam(140,static_cast<char>(*p(p_lfo_am_depth)));
+  synth_unit_->onParam(141,static_cast<char>(*p(p_lfo_key_sync)));
+  synth_unit_->onParam(142,static_cast<char>(*p(p_lfo_wave)));
+  synth_unit_->onParam(143,static_cast<char>(*p(p_p_mode_sens)));
+  synth_unit_->onParam(144,static_cast<char>(*p(p_middle_c)));
   // 10 bytes (145-154) are the name of the patch
   synth_unit_->onParam(155,0x3f); // operator on/off => All OPs on
 
@@ -208,12 +208,12 @@ void DX7::run (uint32_t sample_count)
     uint32_t last_frame = 0, num_this_time = 0;
     float level=*p(p_output)*scaler;
 
+    set_params(); // pre_process: copy actual voice params
+
     for (LV2_Atom_Event* ev = lv2_atom_sequence_begin (&seq->body);
          !lv2_atom_sequence_is_end(&seq->body, seq->atom.size, ev);
          ev = lv2_atom_sequence_next (ev))
     {
-       set_params(); // pre_process: copy actual voice params
-
        num_this_time = ev->time.frames - last_frame;
 
        // If it's midi, send it to the engine
@@ -266,12 +266,16 @@ void DX7_Voice::on(unsigned char key, unsigned char velocity)
 {
   TRACE("Hi");
 
+  m_key = key;
+
   TRACE("Bye");
 }
 
 void DX7_Voice::off(unsigned char velocity)
 {
   TRACE("Hi");
+
+  m_key = lvtk::INVALID_KEY;
 
   TRACE("Bye");
 }
