@@ -37,6 +37,7 @@
         lv2:default 1.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
+	lv2:designation param:cutoff ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -46,6 +47,7 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
+	lv2:designation param:resonance ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -55,16 +57,18 @@
         lv2:default 1.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 2.0 ;
+	lv2:designation param:output ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 5 ;
         lv2:symbol "algorithm" ;
         lv2:name "ALGORITHM" ;
-        lv2:default 4 ;
+        lv2:default 5 ;
         lv2:minimum 1 ;
         lv2:maximum 32 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:algorithm ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -75,6 +79,7 @@
         lv2:minimum 1 ;
         lv2:maximum 8 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:feedback ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -85,6 +90,7 @@
         lv2:minimum 0 ;
         lv2:maximum 1 ;
 	lv2:portProperty lv2:toggled, lv2:integer ;
+	lv2:designation param:osc_key_sync ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -95,6 +101,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:lfo_speed ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -105,6 +112,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:lfo_delay ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -115,6 +123,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:lfo_pm_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -125,6 +134,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:lfo_am_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -135,6 +145,7 @@
         lv2:minimum 0 ;
         lv2:maximum 1 ;
 	lv2:portProperty lv2:toggled, lv2:integer ;
+	lv2:designation param:lfo_key_sync ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -145,6 +156,7 @@
         lv2:minimum 0 ;
         lv2:maximum 5 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:lfo_wave ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -155,6 +167,7 @@
         lv2:minimum 0 ;
         lv2:maximum 48 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:middle_c ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -165,6 +178,7 @@
         lv2:minimum 1 ;
         lv2:maximum 8 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:p_mode_sens ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -175,6 +189,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:pitch_eg_rate_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -185,6 +200,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:pitch_eg_rate_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -195,6 +211,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:pitch_eg_rate_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -205,6 +222,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:pitch_eg_rate_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -215,6 +233,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:pitch_eg_level_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -225,6 +244,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:pitch_eg_level_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -235,6 +255,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:pitch_eg_level_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -245,6 +266,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:pitch_eg_level_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -255,6 +277,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_eg_rate_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -265,6 +288,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_eg_rate_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -275,6 +299,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_eg_rate_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -285,6 +310,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_eg_rate_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -295,6 +321,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_eg_level_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -305,6 +332,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_eg_level_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -315,6 +343,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_eg_level_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -325,6 +354,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_eg_level_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -335,6 +365,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_output_level ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -345,6 +376,7 @@
         lv2:minimum 0 ;
         lv2:maximum 1 ;
 	lv2:portProperty lv2:toggled, lv2:integer ;
+	lv2:designation param:op1_mode ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -355,6 +387,7 @@
         lv2:minimum 0 ;
         lv2:maximum 31 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_f_coarse ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -365,6 +398,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_f_fine ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -375,6 +409,7 @@
         lv2:minimum -7 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_osc_detune ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -385,6 +420,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_break_point ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -395,6 +431,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_l_scale_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -405,6 +442,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_r_scale_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -415,6 +453,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_l_key_scale ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -425,6 +464,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_r_key_scale ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -435,6 +475,7 @@
         lv2:minimum 0 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_rate_scaling ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -445,6 +486,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_a_mod_sens ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -455,6 +497,7 @@
         lv2:minimum 0 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op1_key_velocity ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -465,6 +508,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_eg_rate_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -475,6 +519,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_eg_rate_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -485,6 +530,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_eg_rate_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -495,6 +541,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_eg_rate_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -505,6 +552,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_eg_level_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -515,6 +563,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_eg_level_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -525,6 +574,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_eg_level_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -535,6 +585,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_eg_level_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -545,6 +596,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_output_level ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -555,6 +607,7 @@
         lv2:minimum 0 ;
         lv2:maximum 1 ;
 	lv2:portProperty lv2:toggled, lv2:integer ;
+	lv2:designation param:op2_mode ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -565,6 +618,7 @@
         lv2:minimum 0 ;
         lv2:maximum 31 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_f_coarse ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -575,6 +629,7 @@
         lv2:minimum 0 ;
         lv2:maximum 100 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_f_fine ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -585,6 +640,7 @@
         lv2:minimum -7 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_osc_detune ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -595,6 +651,7 @@
         lv2:minimum 0 ;
         lv2:maximum 100 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_break_point ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -605,6 +662,7 @@
         lv2:minimum 0 ;
         lv2:maximum 100 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_l_scale_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -615,6 +673,7 @@
         lv2:minimum 0 ;
         lv2:maximum 100 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_r_scale_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -625,6 +684,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_l_key_scale ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -635,6 +695,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_r_key_scale ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -645,6 +706,7 @@
         lv2:minimum 0 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_rate_scaling ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -655,6 +717,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_a_mod_sens ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -665,6 +728,7 @@
         lv2:minimum 0 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op2_key_velocity ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -675,6 +739,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_eg_rate_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -685,6 +750,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_eg_rate_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -695,6 +761,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_eg_rate_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -705,6 +772,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_eg_rate_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -715,6 +783,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_eg_level_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -725,6 +794,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_eg_level_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -735,6 +805,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_eg_level_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -745,6 +816,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_eg_level_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -755,6 +827,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_output_level ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -765,6 +838,7 @@
         lv2:minimum 0 ;
         lv2:maximum 1 ;
 	lv2:portProperty lv2:toggled, lv2:integer ;
+	lv2:designation param:op3_mode ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -775,6 +849,7 @@
         lv2:minimum 0 ;
         lv2:maximum 31 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_f_coarse ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -785,6 +860,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_f_fine ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -795,6 +871,7 @@
         lv2:minimum -7 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_osc_detune ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -805,6 +882,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_break_point ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -815,6 +893,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_l_scale_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -825,6 +904,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_r_scale_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -835,6 +915,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_l_key_scale ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -845,6 +926,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_r_key_scale ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -855,6 +937,7 @@
         lv2:minimum 0 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_rate_scaling ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -865,6 +948,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_a_mod_sens ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -875,6 +959,7 @@
         lv2:minimum 0 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op3_key_velocity ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -885,6 +970,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_eg_rate_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -895,6 +981,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_eg_rate_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -905,6 +992,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_eg_rate_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -915,6 +1003,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_eg_rate_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -925,6 +1014,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_eg_level_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -935,6 +1025,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_eg_level_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -945,6 +1036,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_eg_level_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -955,6 +1047,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_eg_level_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -965,6 +1058,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_output_level ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -975,6 +1069,7 @@
         lv2:minimum 0 ;
         lv2:maximum 1 ;
 	lv2:portProperty lv2:toggled, lv2:integer ;
+	lv2:designation param:op4_mode ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -985,6 +1080,7 @@
         lv2:minimum 0 ;
         lv2:maximum 31 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_f_coarse ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -995,6 +1091,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_f_fine ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1005,6 +1102,7 @@
         lv2:minimum -7 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_osc_detune ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1015,6 +1113,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_break_point ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1025,6 +1124,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_l_scale_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1035,6 +1135,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_r_scale_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1045,6 +1146,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_l_key_scale ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1055,6 +1157,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_r_key_scale ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1065,6 +1168,7 @@
         lv2:minimum 0 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_rate_scaling ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1075,6 +1179,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_a_mod_sens ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1085,6 +1190,7 @@
         lv2:minimum 0 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op4_key_velocity ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1095,6 +1201,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_eg_rate_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1105,6 +1212,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_eg_rate_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1115,6 +1223,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_eg_rate_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1125,6 +1234,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_eg_rate_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1135,6 +1245,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_eg_level_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1145,6 +1256,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_eg_level_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1155,6 +1267,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_eg_level_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1165,6 +1278,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_eg_level_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1175,6 +1289,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_output_level ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1185,6 +1300,7 @@
         lv2:minimum 0 ;
         lv2:maximum 1 ;
 	lv2:portProperty lv2:toggled, lv2:integer ;
+	lv2:designation param:op5_mode ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1195,6 +1311,7 @@
         lv2:minimum 0 ;
         lv2:maximum 31 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_f_coarse ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1205,6 +1322,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_f_fine ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1215,6 +1333,7 @@
         lv2:minimum -7 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_osc_detune ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1225,6 +1344,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_break_point ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1235,6 +1355,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation paramaop5_l_scale_depth: ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1245,6 +1366,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_r_scale_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1255,6 +1377,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_l_key_scale ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1265,6 +1388,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_r_key_scale ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1275,6 +1399,7 @@
         lv2:minimum 0 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_rate_scaling ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1285,6 +1410,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_a_mod_sens ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1295,6 +1421,7 @@
         lv2:minimum 0 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op5_key_velocity ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1305,6 +1432,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_eg_rate_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1315,6 +1443,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_eg_rate_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1325,6 +1454,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_eg_rate_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1335,6 +1465,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_eg_rate_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1345,6 +1476,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_eg_level_1 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1355,6 +1487,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_eg_level_2 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1365,6 +1498,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_eg_level_3 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1375,6 +1509,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_eg_level_4 ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1385,6 +1520,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_output_level ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1395,6 +1531,7 @@
         lv2:minimum 0 ;
         lv2:maximum 1 ;
 	lv2:portProperty lv2:toggled, lv2:integer ;
+	lv2:designation param:op6_mode ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1405,6 +1542,7 @@
         lv2:minimum 0 ;
         lv2:maximum 31 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_f_coarse ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1415,6 +1553,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_f_fine ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1425,6 +1564,7 @@
         lv2:minimum -7  ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_osc_detune ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1435,6 +1575,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_break_point ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1445,6 +1586,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_l_scale_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1455,6 +1597,7 @@
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_r_scale_depth ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1465,6 +1608,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_l_key_scale ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1475,6 +1619,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_r_key_scale ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1485,6 +1630,7 @@
         lv2:minimum 0 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_rate_scaling ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1495,6 +1641,7 @@
         lv2:minimum 0 ;
         lv2:maximum 3 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_a_mod_sens ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1505,6 +1652,7 @@
         lv2:minimum 0 ;
         lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
+	lv2:designation param:op6_key_velocity ;
     ] ;
 
     doap:name "DX7" ;

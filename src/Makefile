@@ -18,7 +18,9 @@ clean:
 install: $(BUNDLE)
 	mkdir -p $(INSTALL_DIR)
 	rm -rf $(INSTALL_DIR)/$(BUNDLE)
+	rm -rf ${HOME}/.lv2/$(BUNDLE)
 	cp -R $(BUNDLE) $(INSTALL_DIR)
+
 dx7.peg: dx7.ttl
 	lv2peg dx7.ttl dx7.peg
 

@@ -5,12 +5,14 @@
 @prefix mdap: <http://moddevices.com/plugins/mda/presets#> .
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
 
 <https://github.com/dcoredump/dx7.lv2>
     a lv2:Plugin ;
     doap:name "DX7";
     rdfs:seeAlso <dx7.ttl> .
 
+<https://github.com/dcoredump/dx7.lv2>
     modgui:gui [
         modgui:resourcesDirectory <modgui> ;
         modgui:iconTemplate <modgui/icon-dx7.html> ;
