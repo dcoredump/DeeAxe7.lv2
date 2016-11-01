@@ -134,7 +134,7 @@ static const uint8_t pitchmodsenstab[] = {
 #ifdef MSFADEBUG
 void Dx7Note::print_patch_data(const char patch[156])
 {
-  printf("-------------------------------------------------------------------------------\n");
+  printf("\n-------------------------------------------------------------------------------\n");
 
   // OP rates and levels
   printf("                                                            A\n");
@@ -153,7 +153,13 @@ void Dx7Note::print_patch_data(const char patch[156])
     printf("  %1d  %1d %02d %-1d  %2d        %1d  %1d %1d\n",(int)patch[off + 13],(int)patch[off + 17],(int)patch[off + 18],(int)patch[off + 19], (int)patch[off +20], (int)patch[off +16], (int)patch[off + 15], (int)patch[off + 14]);
   }
 
-  printf("\n                                          Alg.  %2d\n",(int)patch[134]);
+  printf("  P");
+  for (int i = 0; i < 4; i++)
+  {
+    printf("  %02d %02d",(int)patch[126 + i],(int)patch[130 + i]);
+  }
+
+  printf("\n\n                                          Alg.  %2d\n",(int)patch[134]);
   printf("      Left   BkPt  Right     Speed %2d     Fdbk   %1d\n",(int)patch[137],(int)patch[135]);
   for(int op=0;op<=6;op++)
   {

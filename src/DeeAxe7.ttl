@@ -331,7 +331,7 @@
         lv2:index 32 ;
         lv2:symbol "op1_output_level" ;
         lv2:name "OP1 OUTPUT LEVEL" ;
-        lv2:default 79 ;
+        lv2:default 99 ;
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
@@ -351,7 +351,7 @@
         lv2:index 34 ;
         lv2:symbol "op1_f_coarse" ;
         lv2:name "OP1 F COARSE" ;
-        lv2:default 2 ;
+        lv2:default 1 ;
         lv2:minimum 0 ;
         lv2:maximum 31 ;
 	lv2:portProperty lv2:integer ;
@@ -381,7 +381,7 @@
         lv2:index 37 ;
         lv2:symbol "op1_break_point" ;
         lv2:name "OP1 BREAK POINT" ;
-        lv2:default 21 ;
+        lv2:default 12 ;
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
@@ -561,7 +561,7 @@
         lv2:index 55 ;
         lv2:symbol "op2_f_coarse" ;
         lv2:name "OP2 F COARSE" ;
-        lv2:default 15 ;
+        lv2:default 14 ;
         lv2:minimum 0 ;
         lv2:maximum 31 ;
 	lv2:portProperty lv2:integer ;
@@ -591,7 +591,7 @@
         lv2:index 58 ;
         lv2:symbol "op2_break_point" ;
         lv2:name "OP2 BREAK POINT" ;
-        lv2:default 21 ;
+        lv2:default 12 ;
         lv2:minimum 0 ;
         lv2:maximum 100 ;
 	lv2:portProperty lv2:integer ;
@@ -801,7 +801,7 @@
         lv2:index 79 ;
         lv2:symbol "op3_break_point" ;
         lv2:name "OP3 BREAK POINT" ;
-        lv2:default 21 ;
+        lv2:default 12 ;
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
@@ -1011,7 +1011,7 @@
         lv2:index 100 ;
         lv2:symbol "op4_break_point" ;
         lv2:name "OP4 BREAK POINT" ;
-        lv2:default 21 ;
+        lv2:default 12 ;
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
@@ -1171,7 +1171,7 @@
         lv2:index 116 ;
         lv2:symbol "op5_output_level" ;
         lv2:name "OP5 OUTPUT LEVEL" ;
-        lv2:default 89 ;
+        lv2:default 99 ;
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
@@ -1221,7 +1221,7 @@
         lv2:index 121 ;
         lv2:symbol "op5_break_point" ;
         lv2:name "OP5 BREAK POINT" ;
-        lv2:default 21 ;
+        lv2:default 12 ;
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
@@ -1431,7 +1431,7 @@
         lv2:index 142 ;
         lv2:symbol "op6_break_point" ;
         lv2:name "OP6 BREAK POINT" ;
-        lv2:default 38 ;
+        lv2:default 41 ;
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
@@ -1451,7 +1451,7 @@
         lv2:index 144 ;
         lv2:symbol "op6_r_scale_depth" ;
         lv2:name "OP6 R SCALE DEPTH" ;
-        lv2:default 0 ;
+        lv2:default 19 ;
         lv2:minimum 0 ;
         lv2:maximum 99 ;
 	lv2:portProperty lv2:integer ;
