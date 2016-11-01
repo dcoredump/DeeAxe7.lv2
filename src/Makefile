@@ -1,5 +1,5 @@
 #DEBUG=-DDEBUG=1 -DMSFADEBUG=1
-#DEBUG=-DMSFADEBUG=1
+DEBUG=-DMSFADEBUG=1
 CC=g++
 BUNDLE = DeeAxe7.lv2
 INSTALL_DIR = /home/pi/zynthian/zynthian-plugins/mod-lv2

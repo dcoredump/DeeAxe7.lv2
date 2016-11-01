@@ -19,7 +19,7 @@
 using namespace std;
 #endif
 #ifdef MSFADEBUG
-#include <iostream>
+#include <stdio.h>
 #endif
 #include <math.h>
 #include "synth.h"
@@ -134,51 +134,52 @@ static const uint8_t pitchmodsenstab[] = {
 #ifdef MSFADEBUG
 void Dx7Note::print_patch_data(const char patch[156])
 {
-  std::cout << "-------------------------------------------" << std::endl;
+  printf("-------------------------------------------------------------------------------\n");
 
   // OP rates and levels
-  for (int op = 0; op < 6; op++) {
+  printf("                                                            A\n");
+  printf("  O                              R                        V M\n");
+  printf("  P  R1 L1  R2 L2  R3 L3  R4 L4  S  M FC FF  D Freq.  OL  S S\n");
+
+  for (int op = 0; op < 6; op++)
+  {
     int off = op * 21;
 
-    std::cout << "OP" << op << " eg rate: ";
-    for (int i = 0; i < 4; i++) {
-      std::cout << " " << (int)patch[off + i];
+    printf("  %1d",op);
+    for (int i = 0; i < 4; i++)
+    {
+      printf("  %02d %02d",(int)patch[off + i],(int)patch[off + 4 + i]);
     }
-    std::cout << std::endl;
-    std::cout << "OP" << op << " eg level:";
-    for (int i = 0; i < 4; i++) {
-      std::cout << " " << (int)patch[off + 4 + i];
+    printf("  %1d  %1d %02d %-1d  %2d        %1d  %1d %1d\n",(int)patch[off + 13],(int)patch[off + 17],(int)patch[off + 18],(int)patch[off + 19], (int)patch[off +20], (int)patch[off +16], (int)patch[off + 15], (int)patch[off + 14]);
+  }
+
+  printf("\n                                          Alg.  %2d\n",(int)patch[134]);
+  printf("      Left   BkPt  Right     Speed %2d     Fdbk   %1d\n",(int)patch[137],(int)patch[135]);
+  for(int op=0;op<=6;op++)
+  {
+    int off = op * 21;
+    switch(op)
+    {
+      case 1:
+        printf("  %1d   %1d %02d   %02d     %02d %1d     Delay %2d     C3=   %2d\n",op ,(int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 10],(int)patch[off + 12],(int)patch[138],(int)patch[144]);
+        break;
+      case 2:
+        printf("  %1d   %1d %02d   %02d     %02d %1d     PMD   %2d     OKS    %1d\n",op ,(int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 10],(int)patch[off + 12],(int)patch[139],(int)patch[136]);
+        break;
+      case 3:
+        printf("  %1d   %1d %02d   %02d     %02d %1d     AMD   %2d\n",op, (int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 10],(int)patch[off + 12],(int)patch[140]);
+        break;
+      case 4:
+        printf("  %1d   %1d %02d   %02d     %02d %1d     Sync   %1d\n",op ,(int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 10],(int)patch[off + 12],(int)patch[141]);
+        break;
+      case 5:
+        printf("  %1d   %1d %02d   %02d     %02d %1d     Wave   %1d\n",op ,(int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 10],(int)patch[off + 12],(int)patch[142]);
+        break;
+      case 6:
+        printf("  %1d   %1d %02d   %02d     %02d %1d     PMS    %1d\n",op, (int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 10],(int)patch[off + 12],(int)patch[143]);
+        break;
     }
-    std::cout << std::endl;
-
-    std::cout << "outlevel: " << (int)patch[off + 16] << std::endl;
-    std::cout << "lvl scaling: " << (int)patch[off + 8] << " " << (int)patch[off + 9] << " " << (int)patch[off + 10] << " " << (int)patch[off + 11] << " " << (int)patch[off + 12] << std::endl;
-    std::cout << "rate scaling: " << (int)patch[off + 13];
-    std::cout << " mode: " << (int)patch[off + 17];
-    std::cout << " coarse: " << (int)patch[off + 18];
-    std::cout << " fine: " << (int)patch[off + 19];
-    std::cout << " detune: " << (int)patch[off + 20];
-    std::cout << std::endl;
   }
-  std::cout << std::endl;
-
-  std::cout << "pitch rate eg:";
-  for (int i = 0; i < 4; i++) {
-    std::cout << " " << (int)patch[126 + i];
-  }
-  std::cout << std::endl;
-
-  std::cout << "pitch level eg:";
-  for (int i = 0; i < 4; i++) {
-    std::cout << " " << (int)patch[130 + i];
-  }
-  std::cout << std::endl;
-
-  std::cout << "algorithm: " << (int)patch[134];
-  std::cout << " feedback: " << (int)patch[135];
-  std::cout << " pitchmoddepth: " << (int)patch[139];
-  std::cout << " pitchmodsens: " << (int)patch[143];
-  std::cout << std::endl;
 }
 #endif
 
