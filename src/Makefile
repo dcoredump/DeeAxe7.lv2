@@ -12,7 +12,7 @@ LDFLAGS=-shared -L/usr/local/lib -llvtk_plugin2 -llilv-0
 all: $(BUNDLE)
 
 clean:
-	rm -f *.o *~ *.bak *.gch *.peg *.so dx7-test
+	rm -f *.o *~ *.bak *.gch *.peg *.so
 	rm -rf $(BUNDLE)
 
 install: $(BUNDLE)
@@ -32,12 +32,6 @@ $(BUNDLE): manifest.ttl dx7.ttl dx7.so
 #	cd $(BUNDLE)/presets
 #	../../../bin/dx7sysex2lv2 ../../../patches/rom1A.syx
 	
-dx7-test: $(OBJECTS) dx7-test.o dx7.peg
-	$(CC) $(OBJECTS) -lm dx7-test.o -o $@
-
-dx7-test.o: dx7-test.cpp dx7.h
-	$(CC) -c $(CFLAGS) dx7-test.cpp
-
 dx7.so: $(OBJECTS) dx7.o
 	$(CC) $(OBJECTS) dx7.o $(LDFLAGS) -o $@
 
