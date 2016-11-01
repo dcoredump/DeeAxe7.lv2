@@ -7,16 +7,16 @@ TARGET=dx7.so
 OBJECTS=synth_unit.o ringbuffer.o patch.o \
 	lfo.o dx7note.o freqlut.o sin.o exp2.o \
 	fm_core.o pitchenv.o env.o fm_op_kernel.o
-CFLAGS=-O2 -fPIC -DPIC $(DEBUG) -std=c++11 -I. -I./msfa -I/usr/local/include/lvtk-2
+CFLAGS=-O3 -fPIC -DPIC $(DEBUG) -std=c++11 -I. -I./msfa -I/usr/local/include/lvtk-2
 LDFLAGS=-shared -L/usr/local/lib -llvtk_plugin2 -llilv-0
 
-all: $(BUNDLE)
+all: $(BUNDLE) Makefile
 
 clean:
 	rm -f *.o *~ *.bak *.gch *.peg *.so
 	rm -rf $(BUNDLE)
 
-install: $(BUNDLE)
+install: $(BUNDLE) Makefile
 	mkdir -p $(INSTALL_DIR)
 	rm -rf $(INSTALL_DIR)/$(BUNDLE)
 	rm -rf ${HOME}/.lv2/$(BUNDLE)
@@ -29,6 +29,7 @@ $(BUNDLE): manifest.ttl dx7.ttl dx7.so
 	rm -rf $(BUNDLE)
 	mkdir $(BUNDLE)
 	cp $^ $(BUNDLE)
+	cp -R modgui $(BUNDLE)
 #	mkdir $(BUNDLE)/presets
 #	cd $(BUNDLE)/presets
 #	../../../bin/dx7sysex2lv2 ../../../patches/rom1A.syx
