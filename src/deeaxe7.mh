@@ -5,3 +5,4 @@ connect effect_0:lv2_audio_out_1 system:playback_1
 connect effect_0:lv2_audio_out_1 system:playback_2
 param_set 1 grid_1_1 1
 param_set 1 grid_2_3 1
+# preset_load https://github.com/dcoredump/DeeAxe7.lv2#rom1A_BRASS___1

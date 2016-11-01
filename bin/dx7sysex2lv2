@@ -158,7 +158,7 @@ sub write_one_lv2_patch
         #print MANIFEST "\@prefix state: <http://lv2plug.in/ns/ext/state#> .\n";
         #print MANIFEST "\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
         print MANIFEST "\n";
-        print MANIFEST "<".$BANK."_".$dx{'FILENAME'}.".ttl>\n";
+        print MANIFEST "<https://github.com/dcoredump/DeeAxe7.lv2#".$BANK."_".$dx{'FILENAME'}.">\n";
         print MANIFEST "        a pset:Preset ;\n";
         print MANIFEST "        lv2:appliesTo <https://github.com/dcoredump/DeeAxe7.lv2> ;\n";
         print MANIFEST "        rdfs:seeAlso <".$BANK."_".$dx{'FILENAME'}.".ttl> .\n";
@@ -175,7 +175,7 @@ sub write_one_lv2_patch
 	#print TTL "\@prefix state: <http://lv2plug.in/ns/ext/state#> .\n";
 	#print TTL "\@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n";
 	print TTL "\n";
-	print TTL "<>\n";
+	print TTL "<https://github.com/dcoredump/DeeAxe7.lv2#".$BANK."_".$dx{'FILENAME'}.">\n";
 	print TTL "a pset:Preset ;\n";
 	print TTL "lv2:appliesTo <https://github.com/dcoredump/DeeAxe7.lv2> ;\n";
 	print TTL "rdfs:label  \"".$dx{'NAME'}."\" ;\n";
