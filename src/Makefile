@@ -1,4 +1,5 @@
-DEBUG=-DDEBUG=1
+#DEBUG=-DDEBUG=1 -DMSFADEBUG=1
+#DEBUG=-DMSFADEBUG=1
 CC=g++
 BUNDLE = dx7.lv2
 INSTALL_DIR = /home/pi/zynthian/zynthian-plugins/mod-lv2
@@ -51,7 +52,7 @@ lfo.o: msfa/lfo.cc
 	$(CC) -c $(CFLAGS) msfa/lfo.cc
 
 dx7note.o: msfa/dx7note.cc
-	$(CC) -c $(CFLAGS) msfa/dx7note.cc
+	$(CC) -c $(DEBUG) $(CFLAGS) msfa/dx7note.cc
 
 freqlut.o: msfa/freqlut.cc
 	$(CC) -c $(CFLAGS) msfa/freqlut.cc

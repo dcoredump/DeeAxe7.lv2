@@ -18,6 +18,9 @@
 #include <iostream>
 using namespace std;
 #endif
+#ifdef MSFADEBUG
+#include <iostream>
+#endif
 #include <math.h>
 #include "synth.h"
 #include "freqlut.h"
@@ -128,9 +131,63 @@ static const uint8_t pitchmodsenstab[] = {
   0, 10, 20, 33, 55, 92, 153, 255
 };
 
+#ifdef MSFADEBUG
+void Dx7Note::print_patch_data(const char patch[156])
+{
+  std::cout << "-------------------------------------------" << std::endl;
+
+  // OP rates and levels
+  for (int op = 0; op < 6; op++) {
+    int off = op * 21;
+
+    std::cout << "OP" << op << " eg rate: ";
+    for (int i = 0; i < 4; i++) {
+      std::cout << " " << (int)patch[off + i];
+    }
+    std::cout << std::endl;
+    std::cout << "OP" << op << " eg level:";
+    for (int i = 0; i < 4; i++) {
+      std::cout << " " << (int)patch[off + 4 + i];
+    }
+    std::cout << std::endl;
+
+    std::cout << "outlevel: " << (int)patch[off + 16] << std::endl;
+    std::cout << "lvl scaling: " << (int)patch[off + 8] << " " << (int)patch[off + 9] << " " << (int)patch[off + 10] << " " << (int)patch[off + 11] << " " << (int)patch[off + 12] << std::endl;
+    std::cout << "rate scaling: " << (int)patch[off + 13];
+    std::cout << " mode: " << (int)patch[off + 17];
+    std::cout << " coarse: " << (int)patch[off + 18];
+    std::cout << " fine: " << (int)patch[off + 19];
+    std::cout << " detune: " << (int)patch[off + 20];
+    std::cout << std::endl;
+  }
+  std::cout << std::endl;
+
+  std::cout << "pitch rate eg:";
+  for (int i = 0; i < 4; i++) {
+    std::cout << " " << (int)patch[126 + i];
+  }
+  std::cout << std::endl;
+
+  std::cout << "pitch level eg:";
+  for (int i = 0; i < 4; i++) {
+    std::cout << " " << (int)patch[130 + i];
+  }
+  std::cout << std::endl;
+
+  std::cout << "algorithm: " << (int)patch[134];
+  std::cout << " feedback: " << (int)patch[135];
+  std::cout << " pitchmoddepth: " << (int)patch[139];
+  std::cout << " pitchmodsens: " << (int)patch[143];
+  std::cout << std::endl;
+}
+#endif
+
 void Dx7Note::init(const char patch[156], int midinote, int velocity) {
   int rates[4];
   int levels[4];
+#ifdef MSFADEBUG
+  print_patch_data(patch);
+#endif
   for (int op = 0; op < 6; op++) {
     int off = op * 21;
     for (int i = 0; i < 4; i++) {
@@ -177,7 +234,6 @@ void Dx7Note::init(const char patch[156], int midinote, int velocity) {
   fb_shift_ = feedback != 0 ? 8 - feedback : 16;
   pitchmoddepth_ = (patch[139] * 165) >> 6;
   pitchmodsens_ = pitchmodsenstab[patch[143] & 7];
-printf("middle_c: %d\n",patch[144]);
 }
 
 void Dx7Note::compute(int32_t *buf, int32_t lfo_val, int32_t lfo_delay,
