@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef DX7_H_INCLUDED
-#define DX7_H_INCLUDED
+#ifndef DEEAXE7_H_INCLUDED
+#define DEEAXE7_H_INCLUDED
 
 #include "msfa/synth.h"
 #include "msfa/synth_unit.h"
@@ -27,13 +27,13 @@
 
 void _trace(const char *source, const char *fmt, ...);
 
-#define DX7_ID "0.0.1"
+#define DeeAxe7_ID "0.0.1"
 
 #ifdef DEBUG
-    #define DX7_VERSION DX7_ID " DEBUG"
+    #define DeeAxe7_VERSION DeeAxe7_ID " DEBUG"
     #define TRACE(fmt, ...) _trace(__PRETTY_FUNCTION__,fmt,##__VA_ARGS__)
 #else
-    #define DX7_VERSION DX7_ID
+    #define DeeAxe7_VERSION DeeAxe7_ID
     #define TRACE(fmt, ...)
 #endif
 
@@ -44,11 +44,11 @@ static const float scaler = 0.00003051757813;
 
 //==============================================================================
 
-class DX7_Voice : public lvtk::Voice
+class DeeAxe7_Voice : public lvtk::Voice
 {
   public:
-    DX7_Voice(double rate);
-    ~DX7_Voice();
+    DeeAxe7_Voice(double rate);
+    ~DeeAxe7_Voice();
     void on(unsigned char key, unsigned char velocity);
     void off(unsigned char velocity);
     unsigned char get_key(void) const;
@@ -62,11 +62,11 @@ class DX7_Voice : public lvtk::Voice
 
 //==============================================================================
 
-class DX7 : public lvtk::Synth<DX7_Voice, DX7>
+class DeeAxe7 : public lvtk::Synth<DeeAxe7_Voice, DeeAxe7>
 {
   public:
-    DX7(double rate);
-    ~DX7();
+    DeeAxe7(double rate);
+    ~DeeAxe7();
     void run(uint32_t sample_count);
 
   protected:
@@ -78,4 +78,4 @@ class DX7 : public lvtk::Synth<DX7_Voice, DX7>
     uint32_t bufsize_;
 };
 
-#endif  // DX7_H_INCLUDED
+#endif  // DEEAXE7_H_INCLUDED

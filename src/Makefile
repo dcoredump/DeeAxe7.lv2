@@ -1,9 +1,9 @@
 #DEBUG=-DDEBUG=1 -DMSFADEBUG=1
 #DEBUG=-DMSFADEBUG=1
 CC=g++
-BUNDLE = dx7.lv2
+BUNDLE = DeeAxe7.lv2
 INSTALL_DIR = /home/pi/zynthian/zynthian-plugins/mod-lv2
-TARGET=dx7.so
+TARGET=deeaxe7.so
 OBJECTS=synth_unit.o ringbuffer.o patch.o \
 	lfo.o dx7note.o freqlut.o sin.o exp2.o \
 	fm_core.o pitchenv.o env.o fm_op_kernel.o
@@ -22,23 +22,23 @@ install: $(BUNDLE) Makefile
 	rm -rf ${HOME}/.lv2/$(BUNDLE)
 	cp -R $(BUNDLE) $(INSTALL_DIR)
 
-dx7.peg: dx7.ttl
-	lv2peg dx7.ttl dx7.peg
+deeaxe7.peg: DeeAxe7.ttl
+	lv2peg DeeAxe7.ttl deeaxe7.peg
 
-$(BUNDLE): manifest.ttl dx7.ttl dx7.so
+$(BUNDLE): manifest.ttl DeeAxe7.ttl deeaxe7.so
 	rm -rf $(BUNDLE)
 	mkdir $(BUNDLE)
 	cp $^ $(BUNDLE)
 	cp -R modgui $(BUNDLE)
 #	mkdir $(BUNDLE)/presets
 #	cd $(BUNDLE)/presets
-#	../../../bin/dx7sysex2lv2 ../../../patches/rom1A.syx
+#	../../../bin/deeaxe7sysex2lv2 ../../../patches/rom1A.syx
 	
-dx7.so: $(OBJECTS) dx7.o
-	$(CC) $(OBJECTS) dx7.o $(LDFLAGS) -o $@
+deeaxe7.so: $(OBJECTS) deeaxe7.o
+	$(CC) $(OBJECTS) deeaxe7.o $(LDFLAGS) -o $@
 
-dx7.o: dx7.cpp dx7.peg dx7.h
-	$(CC) -c $(CFLAGS) dx7.cpp
+deeaxe7.o: deeaxe7.cpp deeaxe7.peg deeaxe7.h
+	$(CC) -c $(CFLAGS) deeaxe7.cpp
 
 synth_unit.o: msfa/synth_unit.cc msfa/synth_unit.h
 	$(CC) -c $(CFLAGS) msfa/synth_unit.cc

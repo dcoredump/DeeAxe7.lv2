@@ -1,10 +1,31 @@
 #!/usr/bin/perl
 #
+# dx7sysex2lv2 - SysEx patchset to LV2 converter for
+# DeeAxe7 - LV2 plugin
+#
+# (c) by H. Wirtz <dcoredump@googlemail.com>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+#
+# Hints:
 # https://github.com/rogerallen/dxsyx/blob/master/dx7-sysex-format.txt
 #
-# hexdump -v -s6 -e '/1  "%_ad#    "' -e '/1    "%02X hex"' -e '/1 " | %03i dec"' -e '/1 " | %03o oct"' -e '/1 " | _%c\_\n"' rom1A.syx |less
+# $ hexdump -v -s6 -e '/1  "%_ad#    "' -e '/1    "%02X hex"' -e '/1 " | %03i dec"' -e '/1 " | %03o oct"' -e '/1 " | _%c\_\n"' rom1A.syx |less
+#
 
-$LV2_BUNDLE_NAME="dx7_lv2";
+$LV2_BUNDLE_NAME="DeeAxe7_lv2";
 $LV2_INSTALL_PATH=$ENV{'HOME'}."/.lv2";
 
 $SYSEX=$ARGV[0];
@@ -139,7 +160,7 @@ sub write_one_lv2_patch
         print MANIFEST "\n";
         print MANIFEST "<".$BANK."_".$dx{'FILENAME'}.".ttl>\n";
         print MANIFEST "        a pset:Preset ;\n";
-        print MANIFEST "        lv2:appliesTo <https://github.com/dcoredump/dx7.lv2> ;\n";
+        print MANIFEST "        lv2:appliesTo <https://github.com/dcoredump/DeeAxe7.lv2> ;\n";
         print MANIFEST "        rdfs:seeAlso <".$BANK."_".$dx{'FILENAME'}.".ttl> .\n";
         close(MANIFEST);
 
@@ -156,7 +177,7 @@ sub write_one_lv2_patch
 	print TTL "\n";
 	print TTL "<>\n";
 	print TTL "a pset:Preset ;\n";
-	print TTL "lv2:appliesTo <https://github.com/dcoredump/dx7.lv2> ;\n";
+	print TTL "lv2:appliesTo <https://github.com/dcoredump/DeeAxe7.lv2> ;\n";
 	print TTL "rdfs:label  \"".$dx{'NAME'}."\" ;\n";
 	print_port_lv2("cutoff","0.0");
 	print_port_lv2("resonance","0.0");
@@ -231,7 +252,7 @@ sub write_one_mod_patch
 	mkdir($LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."-".$BANK."_".$dx{'FILENAME'}.".lv2")||die("Cannot mkdir \'".$LV2_BUNDLE_NAME."-".$BANK."_"-$dx{'FILENAME'}.".lv2\': $!\n");
 
 	open(MOD,">".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."-".$BANK."_".$dx{'FILENAME'}.".lv2/".$BANK."_".$dx{'FILENAME'}.".ttl")||die("Cannot open \'".$LV2_INSTALL_PATH."/".$LV2_BUNDLE_NAME."-".$BANK."_".$dx{'FILENAME'}.".lv2/".$BANK."_".$dx{'FILENAME'}.".ttl\': $!\n");
-	print MOD "add https://github.com/dcoredump/dx7.lv2 0\n";
+	print MOD "add https://github.com/dcoredump/DeeAxe7.lv2 0\n";
 	print MOD "add http://gareus.org/oss/lv2/stepseq#s4n4 1\n";
 	print MOD "connect effect_1:midiout effect_0:midi_in\n";
 	print MOD "connect effect_0:audio_out system:playback_1\n";

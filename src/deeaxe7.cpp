@@ -1,8 +1,39 @@
-// from: http://ll-plugins.nongnu.org/lv2pftci/#A_synth
+/**
+ *
+ * DeeAxe7 - LV2 plugin
+ *
+ * (c) by H. Wirtz <dcoredump@googlemail.com>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+ *
+ * This is a fork from https://github.com/webaudiomodules/webdx7
+ * 
+ * Based on the MSFA engine
+ * (Copyright 2012 Google Inc., http://www.apache.org/licenses/LICENSE-2.0)
+ * 
+ * Plugin ideas taken from:
+ * from: http://ll-plugins.nongnu.org/lv2pftci/#A_synth
+ * 
+ * Many thanks to mfisher@kushview.net for lvtk and the explanation how to
+ * use MSFA with lvtk in the run()-method
+ * => https://gist.github.com/mfisher31/6e39c63a77b7176da125cb03380b638c
+ */
 
 #include <lvtk/synth.hpp>
-#include "dx7.peg"
-#include "dx7.h"
+#include "deeaxe7.peg"
+#include "deeaxe7.h"
 #include "freqlut.h"
 #include "exp2.h"
 #include "sin.h"
@@ -10,7 +41,7 @@
 #include "msfa/synth.h"
 #include "msfa/ringbuffer.h"
 
-DX7::DX7(double rate) : lvtk::Synth<DX7_Voice, DX7>(p_n_ports, p_midi_in)
+DeeAxe7::DeeAxe7(double rate) : lvtk::Synth<DeeAxe7_Voice, DeeAxe7>(p_n_ports, p_midi_in)
 {
   TRACE("Hi");
 
@@ -19,7 +50,7 @@ DX7::DX7(double rate) : lvtk::Synth<DX7_Voice, DX7>(p_n_ports, p_midi_in)
   synth_unit_=new SynthUnit(&ring_buffer_);
 
   synth_unit_->Init(rate);
-  add_voices(new DX7_Voice(rate));
+  add_voices(new DeeAxe7_Voice(rate));
   add_audio_outputs(p_audio_out);
 
   //set_params();
@@ -28,7 +59,7 @@ DX7::DX7(double rate) : lvtk::Synth<DX7_Voice, DX7>(p_n_ports, p_midi_in)
   TRACE("Bye");
 }
 
-DX7::~DX7()
+DeeAxe7::~DeeAxe7()
 {
   TRACE("Hi");
 
@@ -38,7 +69,7 @@ DX7::~DX7()
   TRACE("Bye");
 }
 
-void DX7::set_params(void)
+void DeeAxe7::set_params(void)
 {
   TRACE("Hi");
 
@@ -201,7 +232,7 @@ void DX7::set_params(void)
 }
 
 // override the run() method
-void DX7::run (uint32_t sample_count)
+void DeeAxe7::run (uint32_t sample_count)
 {
     const LV2_Atom_Sequence* seq = p<LV2_Atom_Sequence> (p_midi_in);
     float* output = p(p_audio_out);
@@ -248,21 +279,21 @@ void DX7::run (uint32_t sample_count)
 
 //==============================================================================
 
-DX7_Voice::DX7_Voice(double rate) : m_key(lvtk::INVALID_KEY), m_rate(rate)
+DeeAxe7_Voice::DeeAxe7_Voice(double rate) : m_key(lvtk::INVALID_KEY), m_rate(rate)
 {
   TRACE("Hi");
 
   TRACE("Bye");
 }
 
-DX7_Voice::~DX7_Voice()
+DeeAxe7_Voice::~DeeAxe7_Voice()
 {
   TRACE("Hi");
 
   TRACE("Bye");
 }
 
-void DX7_Voice::on(unsigned char key, unsigned char velocity)
+void DeeAxe7_Voice::on(unsigned char key, unsigned char velocity)
 {
   TRACE("Hi");
 
@@ -271,7 +302,7 @@ void DX7_Voice::on(unsigned char key, unsigned char velocity)
   TRACE("Bye");
 }
 
-void DX7_Voice::off(unsigned char velocity)
+void DeeAxe7_Voice::off(unsigned char velocity)
 {
   TRACE("Hi");
 
@@ -280,7 +311,7 @@ void DX7_Voice::off(unsigned char velocity)
   TRACE("Bye");
 }
 
-unsigned char DX7_Voice::get_key(void) const
+unsigned char DeeAxe7_Voice::get_key(void) const
 {
   return m_key;
 }
@@ -296,4 +327,4 @@ void _trace(const char *source, const char *fmt, ...) {
 }
 #endif
 
-static int _ = DX7::register_class(p_uri);
+static int _ = DeeAxe7::register_class(p_uri);

@@ -7,20 +7,20 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix modgui: <http://moddevices.com/ns/modgui#> .
 
-<https://github.com/dcoredump/dx7.lv2>
+<https://github.com/dcoredump/DeeAxe7.lv2>
     a lv2:Plugin ;
-    doap:name "DX7";
-    rdfs:seeAlso <dx7.ttl> .
+    doap:name "DeeAxe7";
+    rdfs:seeAlso <DeeAxe7.ttl> .
 
-<https://github.com/dcoredump/dx7.lv2>
+<https://github.com/dcoredump/DeeAxe7.lv2>
     modgui:gui [
         modgui:resourcesDirectory <modgui> ;
-        modgui:iconTemplate <modgui/icon-dx7.html> ;
-        modgui:stylesheet <modgui/stylesheet-dx7.css> ;
-        modgui:screenshot <modgui/screenshot-dx7.png> ;
-        modgui:thumbnail <modgui/thumbnail-dx7.png> ;
+        modgui:iconTemplate <modgui/icon-deeaxe7.html> ;
+        modgui:stylesheet <modgui/stylesheet-deeaxe7.css> ;
+        modgui:screenshot <modgui/screenshot-deeaxe7.png> ;
+        modgui:thumbnail <modgui/thumbnail-deeaxe7.png> ;
         modgui:brand "dcoredump" ;
-        modgui:label "DeeAxe-7" ;
+        modgui:label "DeeAxe7" ;
         modgui:model "boxy" ;
         modgui:panel "3-knobs" ;
         modgui:color "black" ;
