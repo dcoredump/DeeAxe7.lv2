@@ -65,7 +65,7 @@ SynthUnit::SynthUnit(RingBuffer *ring_buffer) {
   }
   input_buffer_index_ = 0;
   memcpy(patch_data_, epiano, sizeof(epiano));
-  ProgramChange(0);
+  //ProgramChange(0);
   current_note_ = 0;
   /* JJK filter_control_[0] = 258847126;
   filter_control_[1] = 0;
@@ -109,12 +109,12 @@ int SynthUnit::AllocateNote() {
   return -1;
 }
 
-void SynthUnit::ProgramChange(int p) {
+/* void SynthUnit::ProgramChange(int p) {
   current_patch_ = p;
   const uint8_t *patch = patch_data_ + 128 * current_patch_;
   UnpackPatch((const char *)patch, unpacked_patch_);
   lfo_.reset(unpacked_patch_ + 137);
-}
+} */
 
 void SynthUnit::SetController(int controller, int value) {
   controllers_.values_[controller] = value;
@@ -190,7 +190,7 @@ int SynthUnit::ProcessMidiMessage(const uint8_t *buf, int buf_size) {
     if (buf_size >= 2) {
       // program change
       int program_number = buf[1];
-      ProgramChange(min(program_number, 31));
+      //ProgramChange(min(program_number, 31));
       char name[11];
       memcpy(name, unpacked_patch_ + 145, 10);
       name[10] = 0;
@@ -212,7 +212,7 @@ int SynthUnit::ProcessMidiMessage(const uint8_t *buf, int buf_size) {
       if (buf_size >= 4104) {
         // TODO: check checksum?
         memcpy(patch_data_, buf + 6, 4096);
-        ProgramChange(current_patch_);
+        //ProgramChange(current_patch_);
         return 4104;
       }
       return 0;
@@ -288,7 +288,7 @@ void SynthUnit::GetSamples(int n_samples, int16_t *buffer) {
 
 // JJK
 extern "C" { void wam_logi(int i); }
-void SynthUnit::onPatch(const uint8_t* patch, uint32_t size)
+/* void SynthUnit::onPatch(const uint8_t* patch, uint32_t size)
 {
 	if (size == 128) UnpackPatch((const char *)patch, unpacked_patch_);
 	else if (size == 145)
@@ -298,7 +298,7 @@ void SynthUnit::onPatch(const uint8_t* patch, uint32_t size)
 	}
 	else return;
 	lfo_.reset(unpacked_patch_ + 137);
-}
+} */
 
 void SynthUnit::onParam(uint32_t id, char value)
 {

@@ -50,7 +50,7 @@ class SynthUnit {
   int AllocateNote();
 
   // zero-based
-  void ProgramChange(int p);
+  //void ProgramChange(int p);
 
   void SetController(int controller, int value);
 
@@ -79,6 +79,6 @@ class SynthUnit {
 
 // JJK
 public:
-	void onPatch(const uint8_t* patch, uint32_t size);
+	//void onPatch(const uint8_t* patch, uint32_t size);
 	void onParam(uint32_t id, char value);
 };

@@ -4,8 +4,7 @@ CC=g++
 BUNDLE = DeeAxe7.lv2
 INSTALL_DIR = /home/pi/zynthian/zynthian-plugins/mod-lv2
 TARGET=deeaxe7.so
-OBJECTS=synth_unit.o ringbuffer.o \
-	lfo.o dx7note.o freqlut.o sin.o exp2.o \
+OBJECTS=synth_unit.o ringbuffer.o lfo.o dx7note.o freqlut.o sin.o exp2.o \
 	fm_core.o pitchenv.o env.o fm_op_kernel.o
 CFLAGS=-O3 -fPIC -DPIC $(DEBUG) -std=c++11 -I. -I./msfa -I/usr/local/include/lvtk-2
 LDFLAGS=-shared -L/usr/local/lib -llvtk_plugin2 -llilv-0
