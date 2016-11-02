@@ -169,7 +169,7 @@ int SynthUnit::ProcessMidiMessage(const uint8_t *buf, int buf_size) {
       } else if (controller == 3) {
         filter_control_[2] = value * 528416;
       } else */
-		if (controller == 64) {
+      if (controller == 64) {
         sustain_ = value != 0;
         if (!sustain_) {
           for (int note = 0; note < max_active_notes; note++) {
@@ -179,6 +179,10 @@ int SynthUnit::ProcessMidiMessage(const uint8_t *buf, int buf_size) {
             }
           }
         }
+      }
+      if (controller == 01) {
+        // mod wheel
+        ; 
       }
       return 3;
     } return 0;

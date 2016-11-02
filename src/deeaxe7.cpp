@@ -250,7 +250,7 @@ void DeeAxe7::run (uint32_t sample_count)
        // If it's midi, send it to the engine
        if (ev->body.type == m_midi_type)
           ring_buffer_.Write ((uint8_t*) LV2_ATOM_BODY (&ev->body), ev->body.size);
-      
+
        // render audio from the last frame until the timestamp of this event
        synth_unit_->GetSamples (num_this_time, outbuf16_);
       
