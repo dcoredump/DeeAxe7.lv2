@@ -135,7 +135,6 @@ static const uint8_t pitchmodsenstab[] = {
 void Dx7Note::print_patch_data(const char patch[156])
 {
   printf("\n-------------------------------------------------------------------------------\n");
-
   // OP rates and levels
   printf("                                                            A\n");
   printf("  O                              R                        V M\n");
@@ -150,7 +149,7 @@ void Dx7Note::print_patch_data(const char patch[156])
     {
       printf("  %02d %02d",(int)patch[off + i],(int)patch[off + 4 + i]);
     }
-    printf("  %1d  %1d %02d %-1d  %2d        %1d  %1d %1d\n",(int)patch[off + 13],(int)patch[off + 17],(int)patch[off + 18],(int)patch[off + 19], (int)patch[off +20], (int)patch[off +16], (int)patch[off + 15], (int)patch[off + 14]);
+    printf("  %1d  %1d %2d %2d %+1d        %1d  %1d %1d\n",(int)patch[off + 13],(int)patch[off + 17],(int)patch[off + 18],(int)patch[off + 19], (int)patch[off +20]-7, (int)patch[off +16], (int)patch[off + 15], (int)patch[off + 14]);
   }
 
   printf("  P");
@@ -167,22 +166,22 @@ void Dx7Note::print_patch_data(const char patch[156])
     switch(6-op)
     {
       case 1:
-        printf("  %1d   %1d %02d   %02d     %02d %1d     Delay %2d     C3=   %2d\n",5-op ,(int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 10],(int)patch[off + 12],(int)patch[138],(int)patch[144]);
+        printf("  %1d   %1d %02d   %02d     %1d %02d     Delay %2d     C3=   %2d\n",5-op ,(int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 12],(int)patch[off + 10],(int)patch[138],(int)patch[144]);
         break;
       case 2:
-        printf("  %1d   %1d %02d   %02d     %02d %1d     PMD   %2d     OKS    %1d\n",5-op ,(int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 10],(int)patch[off + 12],(int)patch[139],(int)patch[136]);
+        printf("  %1d   %1d %02d   %02d     %1d %02d     PMD   %2d     OKS    %1d\n",5-op ,(int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 12],(int)patch[off + 10],(int)patch[139],(int)patch[136]);
         break;
       case 3:
-        printf("  %1d   %1d %02d   %02d     %02d %1d     AMD   %2d\n",5-op, (int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 10],(int)patch[off + 12],(int)patch[140]);
+        printf("  %1d   %1d %02d   %02d     %1d %02d     AMD   %2d\n",5-op, (int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 12],(int)patch[off + 10],(int)patch[140]);
         break;
       case 4:
-        printf("  %1d   %1d %02d   %02d     %02d %1d     Sync   %1d\n",5-op ,(int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 10],(int)patch[off + 12],(int)patch[141]);
+        printf("  %1d   %1d %02d   %02d     %1d %02d     Sync   %1d\n",5-op ,(int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 12],(int)patch[off + 10],(int)patch[141]);
         break;
       case 5:
-        printf("  %1d   %1d %02d   %02d     %02d %1d     Wave   %1d\n",5-op ,(int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 10],(int)patch[off + 12],(int)patch[142]);
+        printf("  %1d   %1d %02d   %02d     %1d %02d     Wave   %1d\n",5-op ,(int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 12],(int)patch[off + 10],(int)patch[142]);
         break;
       case 6:
-        printf("  %1d   %1d %02d   %02d     %02d %1d     PMS    %1d\n",5-op, (int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 10],(int)patch[off + 12],(int)patch[143]);
+        printf("  %1d   %1d %02d   %02d     %1d %02d     PMS    %1d\n",5-op, (int)patch[off + 11],(int)patch[off + 9],(int)patch[off + 8],(int)patch[off + 12],(int)patch[off + 10],(int)patch[143]);
         break;
     }
   }

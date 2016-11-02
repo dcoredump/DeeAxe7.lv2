@@ -72,8 +72,8 @@
         lv2:symbol "feedback" ;
         lv2:name "FEEDBACK" ;
         lv2:default 6 ;
-        lv2:minimum 1 ;
-        lv2:maximum 8 ;
+        lv2:minimum 0 ;
+        lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
     ] ,
     [
@@ -162,8 +162,8 @@
         lv2:symbol "pitch_mod_sensitivity" ;
         lv2:name "P MODE SENS." ;
         lv2:default 3 ;
-        lv2:minimum 1 ;
-        lv2:maximum 8 ;
+        lv2:minimum 0 ;
+        lv2:maximum 7 ;
 	lv2:portProperty lv2:integer ;
     ] ,
     [

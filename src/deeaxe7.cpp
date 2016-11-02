@@ -94,7 +94,7 @@ void DeeAxe7::set_params(void)
   synth_unit_->onParam(17,static_cast<char>(*p(p_op6_osc_mode)));
   synth_unit_->onParam(18,static_cast<char>(*p(p_op6_osc_freq_coarse)));
   synth_unit_->onParam(19,static_cast<char>(*p(p_op6_osc_freq_fine)));
-  synth_unit_->onParam(20,static_cast<char>(*p(p_op6_osc_detune))+7);
+  synth_unit_->onParam(20,static_cast<char>(*p(p_op6_osc_detune)+7));
   // OP5
   synth_unit_->onParam(21,static_cast<char>(*p(p_op5_eg_rate_1)));
   synth_unit_->onParam(22,static_cast<char>(*p(p_op5_eg_rate_2)));
@@ -116,7 +116,7 @@ void DeeAxe7::set_params(void)
   synth_unit_->onParam(38,static_cast<char>(*p(p_op5_osc_mode)));
   synth_unit_->onParam(39,static_cast<char>(*p(p_op5_osc_freq_coarse)));
   synth_unit_->onParam(40,static_cast<char>(*p(p_op5_osc_freq_fine)));
-  synth_unit_->onParam(41,static_cast<char>(*p(p_op5_osc_detune))+7);
+  synth_unit_->onParam(41,static_cast<char>(*p(p_op5_osc_detune)+7));
   // OP4
   synth_unit_->onParam(42,static_cast<char>(*p(p_op4_eg_rate_1)));
   synth_unit_->onParam(43,static_cast<char>(*p(p_op4_eg_rate_2)));
@@ -138,7 +138,7 @@ void DeeAxe7::set_params(void)
   synth_unit_->onParam(59,static_cast<char>(*p(p_op4_osc_mode)));
   synth_unit_->onParam(60,static_cast<char>(*p(p_op4_osc_freq_coarse)));
   synth_unit_->onParam(61,static_cast<char>(*p(p_op4_osc_freq_fine)));
-  synth_unit_->onParam(62,static_cast<char>(*p(p_op4_osc_detune))+7);
+  synth_unit_->onParam(62,static_cast<char>(*p(p_op4_osc_detune)+7));
   // OP3
   synth_unit_->onParam(63,static_cast<char>(*p(p_op3_eg_rate_1)));
   synth_unit_->onParam(64,static_cast<char>(*p(p_op3_eg_rate_2)));
@@ -160,7 +160,7 @@ void DeeAxe7::set_params(void)
   synth_unit_->onParam(80,static_cast<char>(*p(p_op3_osc_mode)));
   synth_unit_->onParam(81,static_cast<char>(*p(p_op3_osc_freq_coarse)));
   synth_unit_->onParam(82,static_cast<char>(*p(p_op3_osc_freq_fine)));
-  synth_unit_->onParam(83,static_cast<char>(*p(p_op3_osc_detune))+7);
+  synth_unit_->onParam(83,static_cast<char>(*p(p_op3_osc_detune)+7));
   // OP2
   synth_unit_->onParam(84,static_cast<char>(*p(p_op2_eg_rate_1)));
   synth_unit_->onParam(85,static_cast<char>(*p(p_op2_eg_rate_2)));
@@ -182,7 +182,7 @@ void DeeAxe7::set_params(void)
   synth_unit_->onParam(101,static_cast<char>(*p(p_op2_osc_mode)));
   synth_unit_->onParam(102,static_cast<char>(*p(p_op2_osc_freq_coarse)));
   synth_unit_->onParam(103,static_cast<char>(*p(p_op2_osc_freq_fine)));
-  synth_unit_->onParam(104,static_cast<char>(*p(p_op2_osc_detune))+7);
+  synth_unit_->onParam(104,static_cast<char>(*p(p_op2_osc_detune)+7));
   // OP1
   synth_unit_->onParam(105,static_cast<char>(*p(p_op1_eg_rate_1)));
   synth_unit_->onParam(106,static_cast<char>(*p(p_op1_eg_rate_2)));
@@ -204,7 +204,7 @@ void DeeAxe7::set_params(void)
   synth_unit_->onParam(122,static_cast<char>(*p(p_op1_osc_mode)));
   synth_unit_->onParam(123,static_cast<char>(*p(p_op1_osc_freq_coarse)));
   synth_unit_->onParam(124,static_cast<char>(*p(p_op1_osc_freq_fine)));
-  synth_unit_->onParam(125,static_cast<char>(*p(p_op1_osc_detune))+7);
+  synth_unit_->onParam(125,static_cast<char>(*p(p_op1_osc_detune)+7));
   // Global for all OPs
   synth_unit_->onParam(126,static_cast<char>(*p(p_pitch_eg_rate_1)));
   synth_unit_->onParam(127,static_cast<char>(*p(p_pitch_eg_rate_2)));
@@ -214,7 +214,7 @@ void DeeAxe7::set_params(void)
   synth_unit_->onParam(131,static_cast<char>(*p(p_pitch_eg_level_2)));
   synth_unit_->onParam(132,static_cast<char>(*p(p_pitch_eg_level_3)));
   synth_unit_->onParam(133,static_cast<char>(*p(p_pitch_eg_level_4)));
-  synth_unit_->onParam(134,static_cast<char>(*p(p_algorithm_num))-1);
+  synth_unit_->onParam(134,static_cast<char>(*p(p_algorithm_num)));
   synth_unit_->onParam(135,static_cast<char>(*p(p_feedback)));
   synth_unit_->onParam(136,static_cast<char>(*p(p_oscillator_sync)));
   synth_unit_->onParam(137,static_cast<char>(*p(p_lfo_speed)));

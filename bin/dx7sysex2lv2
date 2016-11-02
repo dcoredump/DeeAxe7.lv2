@@ -25,8 +25,6 @@
 # $ hexdump -v -s6 -e '/1  "%_ad#    "' -e '/1    "%02X hex"' -e '/1 " | %03i dec"' -e '/1 " | %03o oct"' -e '/1 " | _%c\_\n"' rom1A.syx |less
 #
 
-use Data::Dumper;
-
 $DXSYX="/usr/local/bin/dxsyx";
 
 $LV2_BUNDLE_NAME="DeeAxe7.lv2";
@@ -142,6 +140,16 @@ sub write_manifest
 sub print_lv2_port
 {
         ($port_name,$port_val)=@_;
+
+	# Specials
+	if($port_name eq "algorithm_num")
+	{
+		$port_val+=1;
+	}
+	if($port_name=~/op\d_osc_detune/)
+	{
+		$port_val-=7;
+	}
 
         print $deeaxe_voice "                lv2:symbol \"".$port_name."\" ;\n";
 	$port_val.=".0" if($port_val!~/\./);
