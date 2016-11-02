@@ -40,7 +40,8 @@ void _trace(const char *source, const char *fmt, ...);
 //==============================================================================
 // Global vars
 RingBuffer ring_buffer_;
-static const float scaler = 0.00003051757813;
+//static const float scaler = 0.00003051757813;
+static const float scaler = 0.00003;
 
 //==============================================================================
 

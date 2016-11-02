@@ -34,7 +34,7 @@
 #include "synth_unit.h"
 #include "aligned_buf.h"
 
-char epiano[] = {
+/* char epiano[] = {
   95, 29, 20, 50, 99, 95, 0, 0, 41, 0, 19, 0, 115, 24, 79, 2, 0,
   95, 20, 20, 50, 99, 95, 0, 0, 0, 0, 0, 0, 3, 0, 99, 2, 0,
   95, 29, 20, 50, 99, 95, 0, 0, 0, 0, 0, 0, 59, 24, 89, 2, 0,
@@ -44,7 +44,7 @@ char epiano[] = {
   
   94, 67, 95, 60, 50, 50, 50, 50, 4, 6, 34, 33, 0, 0, 56, 24,
   69, 46, 80, 73, 65, 78, 79, 32, 49, 32
-};
+}; */
 
 void SynthUnit::Init(double sample_rate) {
   Freqlut::init(sample_rate);
@@ -64,7 +64,7 @@ SynthUnit::SynthUnit(RingBuffer *ring_buffer) {
     active_note_[note].live = false;
   }
   input_buffer_index_ = 0;
-  memcpy(patch_data_, epiano, sizeof(epiano));
+  //memcpy(patch_data_, epiano, sizeof(epiano));
   //ProgramChange(0);
   current_note_ = 0;
   /* JJK filter_control_[0] = 258847126;

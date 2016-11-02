@@ -52,7 +52,7 @@
         lv2:index 4 ;
         lv2:symbol "output" ;
         lv2:name "Output" ;
-        lv2:default 0.850000 ;
+        lv2:default 1.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 2.0 ;
     ] ,
