@@ -1,0 +1,41 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ui:   <http://lv2plug.in/ns/extensions/ui#> .
+@prefix mdap: <http://moddevices.com/plugins/mda/presets#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+
+<https://github.com/dcoredump/DeeAxe7.lv2>
+    a lv2:Plugin ;
+    doap:name "DeeAxe7";
+    rdfs:seeAlso <DeeAxe7.ttl> .
+
+<https://github.com/dcoredump/DeeAxe7.lv2>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-deeaxe7.html> ;
+        modgui:stylesheet <modgui/stylesheet-deeaxe7.css> ;
+        modgui:screenshot <modgui/screenshot-deeaxe7.png> ;
+        modgui:thumbnail <modgui/thumbnail-deeaxe7.png> ;
+        modgui:brand "dcoredump" ;
+        modgui:label "DeeAxe7" ;
+        modgui:model "boxy" ;
+        modgui:panel "3-knobs" ;
+        modgui:color "black" ;
+        modgui:knob "black" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "output" ;
+            lv2:name "Gain" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "cutoff" ;
+            lv2:name "Cutoff" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "resonance" ;
+            lv2:name "Resonance" ;
+        ] ;
+    ] .

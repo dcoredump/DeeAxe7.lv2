@@ -20,8 +20,7 @@
  
 This is a fork from https://github.com/webaudiomodules/webdx7
 
-Based on the MSFA engine:
-(Copyright 2012 Google Inc., http://www.apache.org/licenses/LICENSE-2.0)
+Based on the MSFA engine (https://github.com/google/music-synthesizer-for-android, Copyright 2012 Google Inc., http://www.apache.org/licenses/LICENSE-2.0)
  
 Plugin ideas taken from:
 from: http://ll-plugins.nongnu.org/lv2pftci/#A_synth
@@ -29,3 +28,5 @@ from: http://ll-plugins.nongnu.org/lv2pftci/#A_synth
 Many thanks to mfisher@kushview.net for lvtk and the explanation how to
 use MSFA with lvtk in the run()-method
 (https://gist.github.com/mfisher31/6e39c63a77b7176da125cb03380b638c)
+
+# A FM-synth simulation of the DX7 as LV2 plugin
