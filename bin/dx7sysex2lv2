@@ -62,7 +62,13 @@ while($s=<SYSEX>)
 		}
 
 		my($path)=$LV2_INSTALL_PATH."/".$_LV2_BUNDLE_NAME."-".$BANK."_".$voice.".lv2";
-		mkdir($path) || die("Cannot create dir \'$path\':$!\n");
+		print "Writing ".$path."/".$BANK."_".$voice.".ttl\n";
+
+		if(!-d $path)
+		{
+			mkdir($path) || die("Cannot create dir \'$path\':$!\n");
+		}
+
 		write_manifest($path,$voice);
 
 		open($deeaxe_voice,">".$path."/".$BANK."_".$voice.".ttl") || die ("Cannot open \'".$path."/".$BANK."_".$voice.".ttl\': $!");
@@ -78,7 +84,12 @@ while($s=<SYSEX>)
 		print_lv2_port($1,$2);
 	}
 }
-close($deeaxe_voice) if ($deeaxe_voice);
+
+if($deeaxe_voice)
+{
+	print $deeaxe_voice "        ] .\n";
+	close($deeaxe_voice);
+}
 close(SYSEX);
 
 sub write_preset_header
