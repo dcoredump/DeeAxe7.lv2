@@ -2,6 +2,8 @@
 
 (c) by H. Wirtz <dcoredump@googlemail.com>
 
+## Please note that this LV2-plugin is not state-of-the-art anymore! You should use https://github.com/dcoredump/dexed/tree/native-lv2
+
 ## License
 >
 > This program is free software; you can redistribute it and/or modify
